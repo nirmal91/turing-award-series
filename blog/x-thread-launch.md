@@ -98,8 +98,7 @@ Implemented IT's full pipeline in Python: tokenizer → parser → AST → bytec
 18
 ```
 
-13 tests passing. Run it yourself:
-github.com/nirmal91/turing-award-series
+13 tests passing.
 
 ---
 
@@ -110,7 +109,4 @@ One winner per week, all the way through.
 Next: Maurice Wilkes (1967) — microprogramming and EDSAC
 
 If you were that person who stayed late in the CS lab not because you had to but because you wanted to — follow along.
-
-Full writeup + code → [link to blog post]
-Repo → github.com/nirmal91/turing-award-series
 
