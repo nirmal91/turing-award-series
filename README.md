@@ -8,9 +8,9 @@ Each entry has two audiences: an ELI10 explanation and a CS graduate-level analy
 
 ## Index
 
-| # | Winner | Year | Core Contribution | Code | Writeup |
-|---|--------|------|-------------------|------|---------|
-| 01 | Alan Jay Perlis | 1966 | First working compiler (IT), co-designed ALGOL 60, founded CS as a discipline | [compiler.py](./01-alan-perlis-1966/compiler.py) | [README](./01-alan-perlis-1966/README.md) |
+| # | Winner | Year | Core Contribution | Code | Writeup | Blog |
+|---|--------|------|-------------------|------|---------|------|
+| 01 | Alan Jay Perlis | 1966 | First working compiler (IT), co-designed ALGOL 60, founded CS as a discipline | [compiler.py](./01-alan-perlis-1966/compiler.py) | [README](./01-alan-perlis-1966/README.md) | [Post](./blog/01-alan-perlis-1966.md) |
 
 ---
 
