@@ -4,11 +4,11 @@
 
 *This section is written by me — Nirmal. The rest of the repo is code and writeups that Claude helps structure, but this part is mine.*
 
-I miss reading research papers. Not to apply them to a sprint or turn them into a feature — just to understand them. There's a version of learning that has no immediate ROI and I've been doing less and less of it the busier I've gotten.
+I used to read research papers just because I was curious. Not because they were assigned, not because they'd help me ship something faster — just because I wanted to understand how someone figured something out. I've missed that.
 
-Writing is how I think. When I write something down, I understand it differently than if I just read it or talked about it. I don't want to lose that.
+What's different now is that the barrier to actually grokking hard concepts is so much lower. You can take a dense 1960s systems paper, work through it with an LLM, and come out the other side genuinely understanding it — not a surface-level summary, but the actual idea. And you can customize how deep you go, how it's explained, what you build from it. That wasn't possible before.
 
-There's a category of writing I'm happy to hand off entirely — status updates, documentation, instructions, meeting recaps. AI can have all of that. But writing to understand something? That I want to keep. This series is me doing that in public.
+So I'm picking this back up. Every Turing Award winner, one per week, starting from 1966. Reading the work, understanding it properly, writing about it, and building something from it. Learning for the sake of learning — with better tools than I had in school.
 
 One Turing Award winner per week, starting from 1966. Working code, real writeups, back to first principles. Each entry covers two audiences: someone curious with no CS background, and someone with a CS degree who wants the actual depth.
 
