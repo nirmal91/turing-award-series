@@ -1,10 +1,16 @@
 # Turing Award Series
 
-One thing I genuinely miss from CS undergrad: sitting with a paper — a real one, written by someone who figured something out for the first time — working through it until it clicked, then building something from it. That feeling of *oh, that's how it actually works* doesn't show up in tutorials. It only comes from going to the source.
+## Why
 
-This series is an attempt to get that back. Every Turing Award winner, starting from 1966. One per week. Working code, real writeups, back to first principles.
+*This section is written by me — Nirmal. The rest of the repo is code and writeups that Claude helps structure, but this part is mine.*
 
-Each entry is written for two audiences: someone curious with no CS background, and someone with a CS degree who wants the actual depth.
+I miss reading research papers. Not to apply them to a sprint or turn them into a feature — just to understand them. There's a version of learning that has no immediate ROI and I've been doing less and less of it the busier I've gotten.
+
+Writing is how I think. When I write something down, I understand it differently than if I just read it or talked about it. I don't want to lose that.
+
+There's a category of writing I'm happy to hand off entirely — status updates, documentation, instructions, meeting recaps. AI can have all of that. But writing to understand something? That I want to keep. This series is me doing that in public.
+
+One Turing Award winner per week, starting from 1966. Working code, real writeups, back to first principles. Each entry covers two audiences: someone curious with no CS background, and someone with a CS degree who wants the actual depth.
 
 ---
 
