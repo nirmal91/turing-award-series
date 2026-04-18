@@ -23,6 +23,9 @@ Example:
     > y = x * (2 + 4)
     > y
     18.0
+
+For a detailed pipeline walkthrough (tokens → AST → bytecode → VM), see
+COMPILER-WALKTHROUGH.md in this directory.
 """
 
 from __future__ import annotations
