@@ -6,8 +6,6 @@
 
 ## My Take
 
-*Written by me — no AI assist.*
-
 We've gone through tons of advancements in computer languages over the years, but at the heart of everything, computers have always understood it the exact same way. We have built abstractions on top, like Python and, most recently, English as a new programming language, but deep, deep down inside, computers have always looked at zeros and ones, or things to do operations to manipulate an actual bit on a disk or something. That has never changed.
 
 What makes Alan Jay Perlis's work stand out is that he was the first to say humans don't have to do the hard work of translating things into how computers understand them. You should be able to write a simple mathematical equation or formula, and the compiler will do the translation. Not everyone has to understand and write machine code — which is crazy to think about. Maybe the next layer of abstraction is that not everyone has to understand programming languages at all. He was the first to invent something humans could write in instead of having to write machine code.
