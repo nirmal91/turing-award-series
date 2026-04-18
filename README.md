@@ -6,8 +6,6 @@ I miss learning for the sake of learning and going into rabbit holes. Reading re
 
 What's different now is that the barrier to actually grokking hard concepts is so much lower. You can take a dense 1960s systems paper, work through it with an LLM, and come out the other side genuinely understanding it. You can customize the learning based on your skills, your experience, your knowledge. That wasn't possible before.
 
-So I'm doing it. Turing Award winners to start, and other CS papers I find interesting along the way.
-
 ---
 
 ## Format
