@@ -4,7 +4,7 @@
 
 I used to read research papers just because I was curious. Not because they were assigned, not because they'd help me ship something faster — just because I wanted to understand how someone figured something out. I've missed that.
 
-What's different now is that the barrier to actually grokking hard concepts is so much lower. You can take a dense 1960s systems paper, work through it with an LLM, and come out the other side genuinely understanding it — not a surface-level summary, but the actual idea. And you can customize how deep you go, how it's explained, what you build from it. That wasn't possible before.
+What's different now is that the barrier to actually grokking hard concepts is so much lower. You can take a dense 1960s systems paper, work through it with an LLM, and come out the other side genuinely understanding it. You can customize the learning based on your skills, your experience, your knowledge. That wasn't possible before.
 
 So I'm picking this back up. Starting with Turing Award winners from 1966, but I'm interested in both — Turing Award winners and other interesting CS papers worth understanding deeply. Reading the work, writing about it, building something from it. Learning for the sake of learning — with better tools than I had in school.
 
