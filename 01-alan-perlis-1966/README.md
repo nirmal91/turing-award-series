@@ -83,6 +83,25 @@ IT was remarkable for two reasons beyond its existence:
 
 The IBM 650 it targeted was a drum-memory decimal computer where instruction sequencing was non-trivial: each instruction encoded not just an opcode and data address but a *next instruction address*, because instructions had to be placed on the drum at positions that minimized rotational latency. Writing correct 650 machine code by hand was error-prone in a uniquely mechanical way; automating it was a genuine engineering achievement.
 
+Every IBM 650 instruction was exactly 10 digits — three fields:
+
+| Field | Digits | Meaning |
+|-------|--------|---------|
+| `OP` | 2 | Operation code — what to do |
+| `DDDD` | 4 | Data address — where in memory to find the operand |
+| `NNNN` | 4 | Next instruction address — where on the drum the next instruction lives |
+
+To compute `x = (a + b) * c`, assuming `a` at 0100, `b` at 0101, `c` at 0102, `x` at 0103:
+
+```
+65  0100  0011    OP=65 (RAL: clear accumulator, load a)    next instr at drum position 0011
+15  0101  0012    OP=15 (AL:  add b to accumulator)         next instr at drum position 0012
+19  0102  0013    OP=19 (MPY: multiply by c)                next instr at drum position 0013
+24  0103  0014    OP=24 (STD: store result into x)          next instr at drum position 0014
+```
+
+The `NNNN` field is what made this brutal. The drum spun at 12,500 RPM. If your next instruction wasn't physically sitting at the right spot on the drum when the read head arrived, the computer waited a full rotation — about 5 milliseconds, enormous at the time. So programmers didn't just write logic, they solved a packing puzzle: place each instruction at the drum position that would arrive just in time after the previous one finished. Every program was also a timing optimization problem. Perlis's compiler handled that automatically.
+
 ### 2. ALGOL 58 and ALGOL 60: The Language That Taught Every Language
 
 In 1958 Perlis chaired a joint ACM/GAMM meeting in Zurich that produced the International Algebraic Language (later renamed ALGOL 58). He then co-authored both the 1958 preliminary report and the full ALGOL 60 Revised Report (with Backus, McCarthy, Naur, and nine others).
