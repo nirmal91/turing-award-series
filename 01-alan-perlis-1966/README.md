@@ -4,6 +4,53 @@
 
 ---
 
+## My Take
+
+*Written by me — no AI assist.*
+
+---
+
+## The Code
+
+[`compiler.py`](./compiler.py) — a mini expression compiler that mirrors IT's pipeline:
+
+```
+source text → tokens → AST → stack bytecode → execution
+```
+
+Supports arithmetic expressions with correct operator precedence, variables, and assignment.
+
+```bash
+# Interactive REPL
+python compiler.py
+
+# Run the test suite
+python compiler.py --test
+
+# See the bytecode for each expression
+python compiler.py --verbose
+```
+
+Example session:
+```
+> x = 3
+> y = x * (2 + 4)
+> y
+18
+> (100 - 64) / 4
+9
+```
+
+---
+
+## ELI5 — Explain Like I'm 5
+
+Computers speak a secret language made of numbers. Before Alan Perlis, if you wanted a computer to do something, you had to learn that secret language yourself and write out every single number by hand.
+
+Perlis built a translator. Now you could write normal math like `2 + 3` and the translator would figure out the secret number language for you. Nobody had done that before.
+
+---
+
 ## ELI10 — Explain Like I'm 10
 
 Imagine you want to tell a robot to do your math homework. You could write it in robot-speak — something like `65 8003 8001 0000  10 8001 8003 0000` — but that's exhausting and nobody can read it.
@@ -74,40 +121,7 @@ They read less like jokes and more like distilled experience from someone who ha
 
 ---
 
-## The Code
-
-[`compiler.py`](./compiler.py) — a mini expression compiler that mirrors IT's pipeline:
-
-```
-source text → tokens → AST → stack bytecode → execution
-```
-
-Supports arithmetic expressions with correct precedence, variables, and assignment. Run it:
-
-```bash
-# Interactive REPL
-python compiler.py
-
-# Run the test suite
-python compiler.py --test
-
-# See the bytecode for each expression
-python compiler.py --verbose
-```
-
-Example session:
-```
-> x = 3
-> y = x * (2 + 4)
-> y
-18
-> (100 - 64) / 4
-9
-```
-
----
-
-## Key Papers
+## Papers and Citations
 
 | Paper | Venue | Year |
 |---|---|---|

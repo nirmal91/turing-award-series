@@ -17,11 +17,12 @@ But every entry has one section written by me. No AI assist on those.
 Writing is how I think. There's writing I'm happy to outsource — status updates, instructions, documentation. The writing that validates my understanding has to come from me.
 
 Each week:
+- **My take** — written by me, validated for accuracy after
+- **Code** — a working implementation of the core idea, with instructions to run it
+- **ELI5** — the contribution explained to a curious five-year-old
 - **ELI10** — the contribution explained to a curious ten-year-old
 - **CS grad** — the technical depth: what was new, what it replaced, why it mattered, what descended from it
-- **Code** — a working implementation of the core idea
-- **My take** — written by me, validated for accuracy after
-- **Papers** — links to the primary sources
+- **Papers and citations** — links to the primary sources
 
 ---
 
