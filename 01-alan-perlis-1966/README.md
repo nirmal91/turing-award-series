@@ -100,6 +100,16 @@ To compute `x = (a + b) * c`, assuming `a` at 0100, `b` at 0101, `c` at 0102, `x
 24  0103  0014    OP=24 (STD: store result into x)          next instr at drum position 0014
 ```
 
+What each opcode actually means:
+
+**RAL — Reset Add Lower.** Three words describing one action. *Reset* means clear the accumulator completely (wipe whatever was in it from a previous calculation). *Add* means load a value from memory into it. *Lower* means put it in the lower half — the IBM 650 had a 20-digit accumulator split into an upper 10 digits and a lower 10 digits, and most arithmetic happened in the lower half. So `65 0100` means: start fresh, load the value at address 0100 into the lower accumulator. This was the standard way to begin any calculation.
+
+**AL — Add Lower.** Take whatever is at the given memory address and add it to what's already sitting in the lower accumulator. No reset — just add on top.
+
+**MPY — Multiply.** Multiply the value in the accumulator by the value at the given address. The result filled both the upper and lower halves of the accumulator because multiplication of two 10-digit numbers can produce a 20-digit result.
+
+**STD — Store Distributor.** Copy the result out of the accumulator and write it to the given memory address. This is how you saved your answer.
+
 The `NNNN` field is what made this brutal. The drum spun at 12,500 RPM. If your next instruction wasn't physically sitting at the right spot on the drum when the read head arrived, the computer waited a full rotation — about 5 milliseconds, enormous at the time. So programmers didn't just write logic, they solved a packing puzzle: place each instruction at the drum position that would arrive just in time after the previous one finished. Every program was also a timing optimization problem. Perlis's compiler handled that automatically.
 
 ### 2. ALGOL 58 and ALGOL 60: The Language That Taught Every Language
