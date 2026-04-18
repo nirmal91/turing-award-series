@@ -2,7 +2,7 @@
 
 ## Why
 
-I used to read research papers just because I was curious. Not because they were assigned, not because they'd help me ship something faster — just because I wanted to understand how someone figured something out. I've missed that.
+I miss learning for the sake of learning and going into rabbit holes. Reading research papers has always been aspirational for me but hard to be consistent with. They were complex and you had to spend hours getting enough context around them to actually understand what was being said.
 
 What's different now is that the barrier to actually grokking hard concepts is so much lower. You can take a dense 1960s systems paper, work through it with an LLM, and come out the other side genuinely understanding it. You can customize the learning based on your skills, your experience, your knowledge. That wasn't possible before.
 
