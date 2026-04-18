@@ -31,6 +31,7 @@ Each week:
 | # | Winner | Year | Core Contribution | Code | Writeup |
 |---|--------|------|-------------------|------|---------|
 | 01 | Alan Jay Perlis | 1966 | First working compiler (IT), co-designed ALGOL 60, founded CS as a discipline | [compiler.py](./01-alan-perlis-1966/compiler.py) | [README](./01-alan-perlis-1966/README.md) |
+| 02 | Maurice Wilkes | 1967 | Built EDSAC (first stored-program computer), invented microprogramming | [microprogramming.py](./02-maurice-wilkes-1967/microprogramming.py) | [README](./02-maurice-wilkes-1967/README.md) |
 
 ---
 
