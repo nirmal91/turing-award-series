@@ -12,57 +12,41 @@
 
 ## The Code
 
-[`microprogramming.py`](./microprogramming.py) — a microprogram-controlled CPU simulator that mirrors Wilkes's 1951 design:
+[`microprogramming.py`](./microprogramming.py) — a tiny simulated computer that works exactly the way Wilkes described in 1951.
 
-```
-control store (ROM) → microsequencer → datapath transfers → result
-```
-
-Each machine instruction (LOAD, ADD, JMP, etc.) is implemented as a short routine of micro-operations stored in the control store. The CPU doesn't know how to "do ADD" in hardware — it reads the ADD routine from the control store and follows it step by step.
+You write simple instructions. The computer runs them. Behind the scenes, every instruction is broken into small steps looked up from a recipe book (the control store) — not hardwired in.
 
 ```bash
-# Interactive assembler REPL
-python microprogramming.py
-
-# Run the test suite (13 test cases)
-python microprogramming.py --test
-
-# Show micro-op trace for each instruction
-python microprogramming.py --verbose
+python microprogramming.py            # interactive
+python microprogramming.py --test     # run 13 test cases
+python microprogramming.py --verbose  # see every step as it happens
 ```
 
-Example session:
+Try the built-in examples:
 
 ```
 > example 1
   Add two numbers (10 + 32 = 42)
-
-    .data 100 10
-    .data 101 32
-    LOAD 100
-    ADD  101
-    HALT
-
-  Loaded 5 word(s).
 > run
   Halted.  AC=42  cycles=3  micro-ops=19
-  RAM (data): {100: 10, 101: 32}
 ```
 
-With `--verbose`, you see every micro-op:
+`AC` is the result register — the number the computer is holding at the end. `micro-ops=19` means 19 tiny steps were executed to carry out those 3 instructions. You can watch all 19 with `--verbose`.
+
+Want to write your own program:
 
 ```
-  μPC=  0  MAR_PC        AC=     0  PC=  0  MAR=  0  MDR=     0  IR=LOAD(0)
-  μPC=  1  MDR_RAM       AC=     0  PC=  0  MAR=  0  MDR=   100  IR=LOAD(0)
-  μPC=  2  PC_INCR       AC=     0  PC=  1  MAR=  0  MDR=   100  IR=LOAD(0)
-  μPC=  3  IR_MDR        AC=     0  PC=  1  MAR=  0  MDR=   100  IR=LOAD(100)
-  μPC= 10  MAR_IR        AC=     0  PC=  1  MAR=100  MDR=   100  IR=LOAD(100)
-  μPC= 11  MDR_RAM       AC=     0  PC=  1  MAR=100  MDR=    10  IR=LOAD(100)
-  μPC= 12  AC_MDR        AC=    10  PC=  1  MAR=100  MDR=    10  IR=LOAD(100)
-  ...
+> load
+  .data 100 25    ; put the number 25 at memory slot 100
+  .data 101 17    ; put the number 17 at memory slot 101
+  LOAD 100        ; pick up 25
+  ADD  101        ; add 17 to it
+  HALT            ; stop
+> run
+  Halted.  AC=42
 ```
 
-The fetch cycle (μPC 0–3) is identical for every instruction. After decoding the opcode, the microsequencer jumps to that instruction's routine in the control store.
+The instructions available are: `LOAD`, `STORE`, `ADD`, `SUB`, `JMP`, `JZ`, `HALT`.
 
 ---
 
