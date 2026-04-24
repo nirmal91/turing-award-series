@@ -135,6 +135,19 @@ In 1965 Wilkes proposed the "slave store" — a small, fast memory sitting betwe
 
 This is the cache hierarchy that every modern CPU uses: L1, L2, L3 caches sitting between the processor and DRAM, transparently managed by hardware.
 
+### What the Award Was For — and What It Understates
+
+The 1967 citation is specific: *"Professor Wilkes is best known as the builder of the EDSAC, the first computer with an internally stored program."*
+
+EDSAC is what he got the award for. But by 1967, the full timeline was already visible:
+
+- **1949** — EDSAC operational
+- **1951** — microprogramming published; first programming textbook
+- **1965** — cache memory proposed
+- **1967** — Turing Award
+
+The committee cited the earliest contribution. The later ones — microprogramming especially — arguably had more reach. Every major CPU family from IBM's System/360 onward used it. Intel's x86 still does. The award looked at where Wilkes started. The field had already absorbed everything he did after.
+
 ### Connecting the Two Contributions
 
 EDSAC and microprogramming look like separate ideas, but they share a design philosophy: separate the specification of computation from its physical implementation. With EDSAC, the program is a specification stored in memory, not wired into hardware. With microprogramming, the instruction set is a specification stored in the control store, not wired into logic. Both are instances of the same move: put the description in memory, let hardware interpret it. This is the central idea of the stored-program model, taken one level down.
