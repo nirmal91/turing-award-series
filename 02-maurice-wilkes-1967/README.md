@@ -6,7 +6,13 @@
 
 ## My Take
 
-*[Placeholder — written by Nirmal, not AI]*
+Before Wilkes, if you wanted to change how a computer worked, you changed the hardware. He made it a software problem instead.
+
+Every small change required rewiring. New chips, new gates, because instructions were hardcoded into the silicon. If you wanted to add one, or fix one, you weren't updating code. You were rebuilding the machine.
+
+Wilkes changed that in 1951 with microprogramming. Instead of hardcoding operations into hardware, he introduced a recipe book stored in ROM (read only memory), called a control store. If you wanted to change how the underlying hardware behaves, don't touch transistors and just change the recipe. That was a massive shift in reusability and portability.
+
+Almost all progress over the last 70 years has been about adding more of these abstractions, each one building on the last. BIOS, operating systems, applications. All follow the same pattern. I have always dreaded on-prem compared to cloud because it seems painful to slowly push updates, bulk things, etc. Having to actually change hardware seems like 100x more complex, which was the norm before Wilkes. The thing we take for granted, that you can change behavior without touching the machine, started here.
 
 ---
 
@@ -73,29 +79,25 @@ Six microinstructions to execute one machine instruction. Each microinstruction 
 
 ## ELI5
 
-Imagine a really complicated toy that has a hundred buttons — and each button does one tiny thing, like "move the wheel left" or "spin the gear one notch."
+Imagine a machine that can only do one thing: add two numbers. That's it. The ADD instruction is wired directly into the circuits inside.
 
-Before Wilkes, engineers had to wire up every bigger action — like "drive forward" — directly in the machine's circuits. If they forgot one, they had to crack the machine open and resolder things.
+Now you want it to also subtract. You can't just ask nicely. You have to open the machine, pull out wires, solder new ones in. It takes weeks. And if you want multiply after that, same thing all over again.
 
-Wilkes said: write a recipe book instead. "Drive forward" is just page 5 of the book: step 1, press wheel-left button; step 2, press gear button. To add a new action, add a new page. No soldering required.
+Wilkes said: stop wiring instructions into the machine. Write them down in a little book instead. ADD is page 1: "take these two numbers, run them through the adder, write the result back." To add SUBTRACT, you add page 2. No wires touched. No hardware changed. Just a new page.
+
+That book is the control store. That's his invention.
 
 ---
 
 ## ELI10
 
-By 1949, Maurice Wilkes had built EDSAC — the first practical stored-program computer in the world. Programs and data lived in the same mercury delay-line memory (imagine sound pulses bouncing back and forth through a tube of liquid mercury to store bits). You loaded a program by typing punch tape into it. The machine could add, subtract, and branch. It worked.
+Before Wilkes, every instruction a computer understood was wired directly into its hardware. The circuits for "add two numbers" were physical relays and vacuum tubes, soldered in a fixed arrangement. If you wanted to add a new instruction, you had to redesign the circuitry. IBM hit this wall — they'd committed the chip design before realising they'd left out useful instructions. Too late to fix without building a new machine.
 
-But there was a problem under the hood. Every instruction EDSAC understood was wired directly into its hardware. The circuits for "add two numbers" were physical relays and vacuum tubes, soldered in a specific arrangement. If you wanted to add a new instruction — say, a multiply — you had to redesign the control circuitry.
+Wilkes's idea: instead of wiring instruction logic into hardware, write it down in a small read-only memory called a *control store*. To add a new instruction, you add new entries to that memory. No hardware change.
 
-IBM's engineers hit this wall on the 701 in the early 1950s. They had committed the chip design before realising they'd left out useful instructions. Too late. You ship with what you have.
+This meant IBM could build a cheap slow machine and an expensive fast machine that ran the same programs — like a Toyota and a Ferrari that both respond to the same steering wheel. Each had different hardware underneath, but the same instructions on top, each implemented in its own microcode. That was the IBM System/360 in 1964, and it changed the industry.
 
-In 1951, Wilkes published a paper at the Manchester University Computer Inaugural Conference describing a different approach. Instead of wiring control logic directly, put it in a small, fast, read-only memory — a *control store*. Each machine instruction the programmer writes would dispatch to a short sequence of *microinstructions* in that ROM. Each microinstruction is just a few bits that say "route this register to the ALU, do an add, write the result back."
-
-The result: adding a new instruction means writing new ROM entries, not soldering new circuits. Testing and modifying instructions becomes a software problem, not a hardware one.
-
-IBM caught on. Their System/360 (1964) used microprogramming to run the same instruction set across machines of wildly different sizes and price points. The small machine had cheap, slow hardware and a compact microprogram. The big machine had fast hardware and a bigger control store. Externally they looked identical. Internally, each model had its own microcode tailored to its hardware.
-
-Modern Intel and AMD processors still do this. When your CPU encounters an x86 instruction, it often translates it internally into microoperations — RISC-like steps running on the actual silicon engine underneath. The x86 ISA is the public interface. What runs underneath is Wilkes's idea, still going.
+Modern Intel and AMD chips still work this way. When Intel patched the Spectre vulnerability in 2018, they didn't ship new hardware. They pushed a microcode update.
 
 ---
 
