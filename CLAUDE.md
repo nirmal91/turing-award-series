@@ -52,6 +52,7 @@ Split image: left = before the contribution, right = after. Dark background, mon
 
 ## Chapters completed
 - 01: Alan Jay Perlis (1966) — first compiler (IT), ALGOL 60
+- 02: Maurice Wilkes (1967) — microprogramming, control store as ROM
 
 ## Next
-- 02: Maurice Wilkes (1967)
+- 03: Richard Hamming (1968) — error-correcting codes
