@@ -32,6 +32,7 @@ Each week:
 |---|--------|------|-------------------|------|---------|
 | 01 | Alan Jay Perlis | 1966 | First working compiler (IT), co-designed ALGOL 60, founded CS as a discipline | [compiler.py](./01-alan-perlis-1966/compiler.py) | [README](./01-alan-perlis-1966/README.md) |
 | 02 | Maurice Wilkes | 1967 | Invented microprogramming — machine instructions implemented as ROM microcode, not hardwired logic | [implementation.py](./02-maurice-wilkes-1967/implementation.py) | [README](./02-maurice-wilkes-1967/README.md) |
+| 03 | Richard Hamming | 1968 | Invented error-correcting codes — parity bits that locate and fix a flipped bit without retransmission | [implementation.py](./03-richard-hamming-1968/implementation.py) | [README](./03-richard-hamming-1968/README.md) |
 
 ---
 
