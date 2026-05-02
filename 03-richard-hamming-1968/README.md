@@ -67,6 +67,142 @@ The syndrome is a binary number that names the bad position directly. That's the
 
 ---
 
+## Full Worked Example
+
+Data to send: `[1, 0, 1, 1]` — 4 bits.
+
+### Step 1 — Find r (trial and error)
+
+You can't know how many parity bits you need upfront. You try values until the assumption is self-consistent — until the r you assumed equals the number of binary digits needed to address the total codeword length.
+
+```
+try r=1:  total = 4+1 = 5.  Largest position = 5 = 101 = 3 digits.  Need 3, have 1. ✗
+try r=2:  total = 4+2 = 6.  Largest position = 6 = 110 = 3 digits.  Need 3, have 2. ✗
+try r=3:  total = 4+3 = 7.  Largest position = 7 = 111 = 3 digits.  Need 3, have 3. ✓
+```
+
+3 parity bits. 7 total positions.
+
+### Step 2 — Assign positions
+
+Powers of 2 get parity bits. Everything else gets data. Each parity bit owns one binary column — the column where its bit is set — and checks every position where that column has a 1.
+
+```
+position:  1    2    3    4    5    6    7
+binary:   001  010  011  100  101  110  111
+type:     p1   p2   d1   p4   d2   d3   d4
+```
+
+Place the 4 data bits into the data slots:
+
+```
+position:  1    2    3    4    5    6    7
+bit:       ?    ?    1    ?    0    1    1
+```
+
+### Step 3 — Compute each parity bit
+
+Each parity bit is set so that XOR across everything it covers equals zero.
+
+**p1** owns the rightmost column. Checks positions 1, 3, 5, 7.
+Data already at 3, 5, 7: `1, 0, 1`
+```
+1 XOR 0 XOR 1 = 0  →  p1 = 0
+```
+
+**p2** owns the middle column. Checks positions 2, 3, 6, 7.
+Data already at 3, 6, 7: `1, 1, 1`
+```
+1 XOR 1 XOR 1 = 1  →  p2 = 1
+```
+
+**p4** owns the leftmost column. Checks positions 4, 5, 6, 7.
+Data already at 5, 6, 7: `0, 1, 1`
+```
+0 XOR 1 XOR 1 = 0  →  p4 = 0
+```
+
+Full codeword:
+
+```
+position:  1    2    3    4    5    6    7
+bit:       0    1    1    0    0    1    1
+type:     p1   p2   d1   p4   d2   d3   d4
+```
+
+### Step 4 — Send over the network
+
+```
+sent:  0  1  1  0  0  1  1
+```
+
+### Case A — A data bit flips (position 5)
+
+Position 5 holds d2. It was `0`, arrives as `1`.
+
+```
+position:  1    2    3    4    5    6    7
+sent:      0    1    1    0    0    1    1
+received:  0    1    1    0    1    1    1
+                               ↑
+                           flipped
+```
+
+Receiver recomputes all three groups:
+
+```
+p1 checks 1,3,5,7:   0 XOR 1 XOR 1 XOR 1 = 1  ✗  broken
+p2 checks 2,3,6,7:   1 XOR 1 XOR 1 XOR 1 = 0  ✓  fine
+p4 checks 4,5,6,7:   0 XOR 1 XOR 1 XOR 1 = 1  ✗  broken
+```
+
+Stack the results: `p4=1, p2=0, p1=1` → binary `101` → **5**
+
+Flip position 5 back. Extract data from positions 3, 5, 6, 7: `[1, 0, 1, 1]` ✓
+
+### Case B — A parity bit flips (position 2)
+
+Position 2 holds p2. It was `1`, arrives as `0`.
+
+```
+position:  1    2    3    4    5    6    7
+sent:      0    1    1    0    0    1    1
+received:  0    0    1    0    0    1    1
+                ↑
+            flipped
+```
+
+Receiver recomputes:
+
+```
+p1 checks 1,3,5,7:   0 XOR 1 XOR 0 XOR 1 = 0  ✓  fine
+p2 checks 2,3,6,7:   0 XOR 1 XOR 1 XOR 1 = 1  ✗  broken
+p4 checks 4,5,6,7:   0 XOR 0 XOR 1 XOR 1 = 0  ✓  fine
+```
+
+Stack: `p4=0, p2=1, p1=0` → binary `010` → **2**
+
+Flip position 2 back. The algorithm doesn't know or care whether a parity bit or a data bit flipped. It just fixes whatever position the syndrome names. Extract data: `[1, 0, 1, 1]` ✓
+
+### Case C — Nothing flips
+
+```
+position:  1    2    3    4    5    6    7
+received:  0    1    1    0    0    1    1
+```
+
+Receiver recomputes:
+
+```
+p1 checks 1,3,5,7:   0 XOR 1 XOR 0 XOR 1 = 0  ✓
+p2 checks 2,3,6,7:   1 XOR 1 XOR 1 XOR 1 = 0  ✓
+p4 checks 4,5,6,7:   0 XOR 0 XOR 1 XOR 1 = 0  ✓
+```
+
+Syndrome: `0, 0, 0` → **0** → no error. Extract data: `[1, 0, 1, 1]` ✓
+
+---
+
 ## ELI5
 
 Imagine you write a note and send it through a tube. Somewhere in the tube, one letter smudges.
