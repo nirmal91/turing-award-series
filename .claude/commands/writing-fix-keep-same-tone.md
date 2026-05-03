@@ -8,6 +8,9 @@ Rules:
 - Do NOT rephrase anything that is already grammatically correct, even if you'd write it differently
 - Do NOT add words, remove words, or restructure sentences beyond what's needed to fix an error
 - Do NOT change casual language, repetition, or informal phrasing — that's the voice
+- Do NOT use hyphens or em dashes — use commas, periods, or conjunctions instead
+- Merge choppy consecutive short sentences into longer flowing ones where the meaning allows
+- Do NOT let the result sound like AI — avoid clean parallel structure, tidy contrasts, and evenly paced paragraphs
 
 Return only the fixed text. No commentary, no explanation, no markup showing what changed.
 
