@@ -6,7 +6,11 @@
 
 ## My Take
 
-*[Placeholder — written by Nirmal, not AI]*
+Richard Hamming, a mathematician, was trying to do what all of us do today. Submit a bunch of jobs Friday evening, expect the machine to keep running all weekend, and have stuff ready Monday morning. It wasn't as smooth for him and he'd come back with nothing done, because random bits were flipping mid-run, corrupting the computation and stopping it cold.
+
+He decided the data could carry enough extra information to fix itself. A few extra bits added to whatever you're transmitting is all it takes, and if a bit flips in transit, those bits tell you exactly which one flipped so you can fix it without retransmitting or restarting. This is now the foundation of everything we do. Think about RAM, SSDs, hard disks, QR codes, even deep space telemetry. Most error-correcting codes today trace back to this one 1950 paper.
+
+Bit flipping happens way more than you'd expect. RAM is the worst case. [Google published a study](https://dl.acm.org/doi/10.1145/1555349.1555372) showing a typical server sees one to two bit flips a day in memory, and a data center has hundreds of thousands of machines with bits flipping constantly. Without error correction, servers silently compute the wrong answers. It would feel like the servers are hallucinating and giving you wrong answers.
 
 ---
 
