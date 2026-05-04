@@ -60,7 +60,19 @@ python implementation.py --verbose     # show internals
 ```
 - Example session showing input and output
 
-### 4. ELI5
+### 4. Full Worked Example
+
+A complete step-by-step walkthrough of the core algorithm or concept with real numbers. No skipping steps. This section is for Nirmal to refer back to when writing his My Take and for readers who want to understand the mechanics.
+
+Structure:
+- Start from scratch: given inputs, what do you do first?
+- Show every intermediate step with actual values
+- For algorithms: show the happy path, then at least one edge case or failure case
+- For the Hamming chapter this meant: finding r by trial and error, assigning positions, computing each parity bit, sending, then all three receive cases (data flip, parity flip, no flip)
+
+This section did not exist in Week 02 and was added during Week 03 after Nirmal asked for it. Include it from Week 04 onward.
+
+### 5. ELI5
 Explain the contribution to a curious 5-year-old. 4-6 lines. No jargon.
 
 **Required:** Use the specific before/after of this invention as the analogy. Do not use a generic analogy. The ELI5 must show: what the world looked like before, what was hard or painful about it, and what changed. If the invention was about changing instructions without touching hardware, show that. If it was about error correction, show what a corrupted message looks like before and after.
@@ -211,5 +223,21 @@ Based on how he writes:
 Go section by section, a few lines at a time. Lead with what the thing *is* historically before explaining what the code does. For example: "Registers are just storage slots on the chip — think of them as variables the hardware keeps around. Here's the code:" works better than "This section defines the register file."
 
 If Nirmal says the code is too complex, offer to distill it down. concept.py exists for exactly this reason.
+
+**Go slow. Never fast-forward.** Nirmal needs to understand every step before moving to the next. The Hamming session required 10+ rounds before the syndrome logic clicked. What worked: concrete examples with real numbers, grids/tables for visual patterns, walking every case by hand. What failed: stating the conclusion before building up to it.
+
+**Use visualizations first for abstract concepts.** If explaining anything involving positions, patterns, binary, or coverage — draw a grid or table before writing prose. The Hamming parity bit assignment only clicked when positions 1-7 were written in binary as a grid.
+
+## LinkedIn post guidance
+
+Start from the My Take text, not a fresh draft. Trim to LinkedIn length, add the week opener and "Link in comments." The My Take already has Nirmal's voice — every fresh draft was worse.
+
+Tweet 4 of the X thread should connect to the most concrete modern example: name specific companies (Mag-7, hyperscalers), specific hardware (H100s, ECC RAM), specific numbers. Generic "it matters today" is weak.
+
+## Image spec guidance
+
+For algorithm/concept chapters, the image should show the actual data being processed, not an abstract before/after. The Hamming image showed real bits (1 0 1 1), the actual encoding, a flipped bit, and the syndrome fixing it. That's more useful than a metaphor.
+
+Expect two generations minimum. After the first image comes back: check labels are factually correct, check no decorative elements crept in, check the visual tells the right story. Give specific feedback on what to fix.
 
 $ARGUMENTS

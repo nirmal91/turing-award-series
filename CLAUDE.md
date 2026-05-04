@@ -15,10 +15,11 @@ Both stored at `/home/user/.claude/commands/`
 ## Chapter format (sections in this order)
 1. My Take — written by Nirmal, never by AI, left as placeholder until he writes it
 2. The Code — working implementation + how to run it
-3. ELI5
-4. ELI10
-5. CS Graduate Level
-6. Papers and Citations
+3. Full Worked Example — step-by-step walkthrough with real numbers, no skipped steps (added Week 03)
+4. ELI5
+5. ELI10
+6. CS Graduate Level
+7. Papers and Citations
 
 ## Code requirements for each chapter
 - Self-contained Python (no external deps)
@@ -53,6 +54,7 @@ Split image: left = before the contribution, right = after. Dark background, mon
 ## Chapters completed
 - 01: Alan Jay Perlis (1966) — first compiler (IT), ALGOL 60
 - 02: Maurice Wilkes (1967) — microprogramming, control store as ROM
+- 03: Richard Hamming (1968) — error-correcting codes, Hamming(7,4)
 
 ## Next
-- 03: Richard Hamming (1968) — error-correcting codes
+- 04: Marvin Minsky (1969) — artificial intelligence, perceptrons
