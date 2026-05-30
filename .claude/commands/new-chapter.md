@@ -236,20 +236,15 @@ Tweet 4 of the X thread should connect to the most concrete modern example: name
 
 ## Image spec guidance
 
-For algorithm/concept chapters, the image should show the actual data being processed, not an abstract before/after. The Hamming image showed real bits (1 0 1 1), the actual encoding, a flipped bit, and the syndrome fixing it. That's more useful than a metaphor.
+For algorithm/concept chapters, the image should show the actual data being processed, not an abstract before/after. Real values, real encoding steps, a real error or transformation — that's more useful than a metaphor.
 
 Expect two generations minimum. After the first image comes back: check labels are factually correct, check no decorative elements crept in, check the visual tells the right story. Give specific feedback on what to fix.
 
-**Labels are fine.** Nirmal is open to text labels on the image (e.g. "Single-layer network", "2-layer network", "XOR"). The original spec said no labels but he prefers them for clarity.
+**Labels are fine.** Nirmal prefers text labels on the image for clarity. The original spec said no labels but he consistently opts in.
 
-**For XOR/classification problems:** The right panel cannot be a single boundary line — XOR requires a region (a band or shape), not a line dividing space in two. The image prompt must specify a shaded band or region, not a curve. A single curve will always be wrong for XOR. Specify: "a diagonal shaded band capturing both positive class points inside it, both negative class points outside."
+**Geometry-heavy images require precision.** If the concept involves spatial relationships (points in a plane, lines, regions, network layers), be explicit in the prompt: name exact positions, specify angles, describe whether the boundary is a line or a region. Vague prompts produce wrong geometry every time. Expect 4-6 iterations for anything geometric.
 
-**Gemini image generation tips:**
-- Use Imagen 3 in Google AI Studio for more precise spatial layouts
-- ChatGPT with DALL-E 3 follows exact spatial instructions more literally
-- Always specify exact point positions: "circle at top-left, square at top-right, square at bottom-left, circle at bottom-right"
-- When lines fan from the same origin, add: "three lines at clearly different angles, each starting and ending at different edges of the grid, not sharing any origin point"
-- Expect 4-6 iterations minimum for geometry-heavy images
+**Model choice matters.** Imagen 3 in Google AI Studio and DALL-E 3 via ChatGPT tend to follow spatial instructions more literally than other tools. If one model keeps getting it wrong after 2-3 tries, switch.
 
 ---
 
@@ -257,19 +252,19 @@ Expect two generations minimum. After the first image comes back: check labels a
 
 Nirmal consistently goes deep on these areas — build them into the session proactively:
 
-**Conceptual connections:** He will ask how this invention connects to things he already knows. For Minsky: "this feels like linear regression", "feels like father of AI and OOP", "was all AI before Minsky linear?" Answer these directly and precisely — don't deflect, but don't overclaim either.
+**Conceptual connections:** He will ask how this invention connects to things he already knows — other fields, modern tools, prior chapters. Answer directly and precisely. Don't deflect, but don't overclaim either. If the connection is real, confirm it. If it's a parallel but not causal, say so.
 
-**Historical context:** He wants to know who else was involved, what the relationships were, what was happening at the time. The Rosenblatt/Minsky high school connection is the kind of detail he finds interesting.
+**Historical context:** He wants to know who else was involved, what the relationships were, what was happening at the time. Personal details (who knew whom, what institution, what year) are the kind of thing he finds interesting.
 
-**Real-world anchors:** He always connects to modern tech. Mag-7, hyperscalers, H100 clusters, ECC RAM. Bring these in proactively in Tweet 4 and the CS Grad section. Don't wait for him to ask.
+**Real-world anchors:** He always connects to modern tech — specific companies, specific hardware, specific numbers. Bring these in proactively in the CS Grad section and Tweet 4. Don't wait for him to ask.
 
-**Code walkthroughs:** He will ask to understand the code in plain language. Go slow. Use real-world analogies before technical ones. He asked "what is a perceptron in the non-CS world" — always have a non-CS framing ready for the core concept.
+**Code walkthroughs:** He will ask to understand the code in plain language. Go slow. Always have a non-CS framing ready for the core concept — what is this thing in the physical world, before explaining what the code does.
 
-**Fact-checking his instincts:** He will make strong claims ("he founded OOP", "AI before Minsky was fully linear"). Engage with these directly — confirm what's right, correct what's not, explain the nuance. He appreciates precision.
+**Fact-checking his instincts:** He will make strong claims and want to know if they hold. Engage with these directly — confirm what's right, correct what's not, explain the nuance. He appreciates precision over diplomacy.
 
 ---
 
-## My Take guidance (updated from Week 04)
+## My Take guidance
 
 **Nirmal writes his own My Take.** The AI placeholder stays until he writes it. But he will ask for bullet points and drafts to work from. Provide:
 1. A clean bullet list of verifiable facts in order
@@ -278,23 +273,23 @@ Nirmal consistently goes deep on these areas — build them into the session pro
 
 **His writing pattern for My Take:**
 - Opens with the person's name and their biggest claim to fame
-- Connects to institutions that still exist today (makes it feel relevant)
+- Connects to institutions or ideas that still exist today (makes it feel relevant)
 - Two highlights max, each given its own paragraph
-- Ends with the modern connection: Mag-7, H100s, hyperscalers
+- Ends with the modern connection: specific companies, hardware, numbers
 - Longer sentences than his LinkedIn/X posts — more explanatory, less punchy
-- Personal observations ("this is how humans think", "the party pooper") are his voice — keep them
+- Personal observations and casual asides are his voice — keep them
 
 **What not to do:**
 - Don't make it punchy/clipped — his My Take is more expansive than his social posts
 - Don't use em dashes — replace with periods or colons
-- Don't overclaim causation (OOP, AI winter sole cause)
+- Don't overclaim causation — if the winner influenced something, say influenced, not caused
 - Don't make him sound like an AI wrote it — if a draft sounds too clean, it's wrong
 
 ---
 
-## LinkedIn post guidance (updated from Week 04)
+## LinkedIn post guidance
 
-**The LinkedIn post IS the My Take, trimmed.** Start from his My Take text, not a fresh draft. Add the week opener, trim to fit, end with "Link in comments."
+**The LinkedIn post IS the My Take, trimmed.** Start from his My Take text, not a fresh draft. Add the week opener, trim to fit, end with "Link in comments." The My Take already has his voice — fresh drafts are always worse.
 
 **Week opener format:** "Week XX of my learning series on Turing Award winners: [Full Name]." Then go straight into the content — no meta-commentary about the series format.
 
@@ -303,42 +298,39 @@ Nirmal consistently goes deep on these areas — build them into the session pro
 - Paragraph breaks between major ideas
 - No bullet points, no bold, no headings
 - Ends every post with "Link in comments." on its own line
-- Uses Mag-7, hyperscalers, H100 clusters as modern anchors
-- "Party pooper" type casual language is genuinely his — keep it
+- Casual language is fine if it's genuinely his — don't manufacture it
 
 ---
 
-## X thread guidance (updated from Week 04)
+## X thread guidance
 
 **Thread structure Nirmal confirmed:**
 - Tweet 1: Week opener + one hook sentence + image
 - Tweet 2: AI generated vs human written (the writing philosophy) — keep this brief
-- Tweet 3: The winner's background and founding contribution
-- Tweet 4: First technical highlight (frames, knowledge representation, etc.)
-- Tweet 5: Second technical highlight (the bigger one — perceptrons, limitations, modern impact)
-- Tweet 6: GitHub link with full chapter URL
+- Tweet 3: The winner's background and core contribution
+- Tweet 4: First technical highlight
+- Tweet 5: Second technical highlight or modern impact
+- Tweet 6: GitHub link with full chapter URL (not just the repo root)
 
-**Do not:** add a "each week I cover one winner" framing — he knows his audience knows the series by now.
+**Do not:** add a "each week I cover one winner" framing — his audience knows the series.
 
-**Do:** use his exact LinkedIn language broken into tweet-sized chunks. Don't rewrite or "improve" it. He will push back if you do.
-
-**GitHub link format:** Use the full chapter URL, not just the repo root. e.g. `https://github.com/nirmal91/turing-award-series/tree/main/04-marvin-minsky-1969`
+**Do:** use his exact LinkedIn language broken into tweet-sized chunks. Don't rewrite or improve it. He will push back if you do.
 
 ---
 
 ## Extra demos (when Nirmal asks for code beyond the chapter)
 
-Nirmal often asks for additional code explorations beyond concept.py and implementation.py. These go in the chapter folder as extra files. Patterns from Week 04:
+Nirmal often asks for additional code explorations beyond concept.py and implementation.py. These go in the chapter folder as extra files.
 
-**Terminal animations:** Use ANSI escape codes. No matplotlib needed. A 50x22 grid with colored characters works well for visualizing decision boundaries, training progress, etc.
+**Terminal animations:** Use ANSI escape codes. No matplotlib needed. A grid of colored characters works well for visualizing any kind of progression, boundary, or state change over time.
 
-**Agent/simulation demos:** When the concept involves emergent behavior (Society of Mind, etc.), build a demo where each agent prints what it's doing. Make it slow enough to watch (time.sleep). Show the emergent behavior clearly in the output.
+**Simulation/emergent behavior demos:** When the concept involves multiple interacting components, build a demo where each component prints what it's doing, with a small delay so it's watchable. The emergent behavior should be visible in the output.
 
-**Naming:** `perceptron_visual.py`, `society_of_mind.py` — descriptive, not generic.
+**Naming:** Be descriptive, not generic. Name the file after what it demonstrates.
 
 ---
 
-## PR and merge workflow (updated)
+## PR and merge workflow
 
 Use GitHub MCP tools, not gh CLI:
 1. `mcp__github__create_pull_request` to open the PR
@@ -346,6 +338,6 @@ Use GitHub MCP tools, not gh CLI:
 3. Branch: always `claude/new-chapter-XXXX` (session-specific, already exists)
 4. Do not push directly to main
 
-Images cannot be committed from chat — they are not accessible as files in the session. Tell Nirmal to save the image locally and add it himself, or drag it into the next session.
+Images cannot be committed from this environment — they are not accessible as files in the session. Tell Nirmal to save the image locally and add it himself, or drag it into the next session.
 
 $ARGUMENTS
