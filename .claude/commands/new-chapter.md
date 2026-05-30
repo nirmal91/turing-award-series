@@ -1,8 +1,83 @@
 You are helping add a new chapter to the Turing Award Series at /home/user/turing-award-series.
 
-The user will provide: a winner's name, year, and optionally a topic hint.
-
 Your job is to produce everything for that chapter. Work through these steps in order and confirm completion of each before moving on.
+
+---
+
+## Auto-detecting the next winner
+
+**If the user provides no arguments**, determine the next winner automatically:
+
+1. List the folders in `/home/user/turing-award-series/` that match the pattern `NN-*` (e.g. `04-marvin-minsky-1969`).
+2. Find the highest chapter number.
+3. Look up the next entry in the winner list below.
+4. Proceed with that winner — no confirmation needed.
+
+**If the user provides a name and year**, use those instead.
+
+### Complete Turing Award winner list
+
+| # | Name | Year |
+|---|------|------|
+| 01 | Alan Jay Perlis | 1966 |
+| 02 | Maurice Wilkes | 1967 |
+| 03 | Richard Hamming | 1968 |
+| 04 | Marvin Minsky | 1969 |
+| 05 | James Wilkinson | 1970 |
+| 06 | John McCarthy | 1971 |
+| 07 | Edsger Dijkstra | 1972 |
+| 08 | Charles Bachman | 1973 |
+| 09 | Donald Knuth | 1974 |
+| 10 | Allen Newell & Herbert Simon | 1975 |
+| 11 | Michael Rabin & Dana Scott | 1976 |
+| 12 | John Backus | 1977 |
+| 13 | Robert Floyd | 1978 |
+| 14 | Kenneth Iverson | 1979 |
+| 15 | Tony Hoare | 1980 |
+| 16 | Edgar Codd | 1981 |
+| 17 | Stephen Cook | 1982 |
+| 18 | Ken Thompson & Dennis Ritchie | 1983 |
+| 19 | Niklaus Wirth | 1984 |
+| 20 | Richard Karp | 1985 |
+| 21 | John Hopcroft & Robert Tarjan | 1986 |
+| 22 | John Cocke | 1987 |
+| 23 | Ivan Sutherland | 1988 |
+| 24 | William Kahan | 1989 |
+| 25 | Fernando Corbató | 1990 |
+| 26 | Robin Milner | 1991 |
+| 27 | Butler Lampson | 1992 |
+| 28 | Juris Hartmanis & Richard Stearns | 1993 |
+| 29 | Edward Feigenbaum & Raj Reddy | 1994 |
+| 30 | Manuel Blum | 1995 |
+| 31 | Amir Pnueli | 1996 |
+| 32 | Douglas Engelbart | 1997 |
+| 33 | Jim Gray | 1998 |
+| 34 | Fred Brooks | 1999 |
+| 35 | Andrew Yao | 2000 |
+| 36 | Ole-Johan Dahl & Kristen Nygaard | 2001 |
+| 37 | Ron Rivest, Adi Shamir & Leonard Adleman | 2002 |
+| 38 | Alan Kay | 2003 |
+| 39 | Vint Cerf & Bob Kahn | 2004 |
+| 40 | Peter Naur | 2005 |
+| 41 | Frances Allen | 2006 |
+| 42 | Edmund Clarke, Allen Emerson & Joseph Sifakis | 2007 |
+| 43 | Barbara Liskov | 2008 |
+| 44 | Charles Thacker | 2009 |
+| 45 | Leslie Valiant | 2010 |
+| 46 | Judea Pearl | 2011 |
+| 47 | Silvio Micali & Shafi Goldwasser | 2012 |
+| 48 | Leslie Lamport | 2013 |
+| 49 | Michael Stonebraker | 2014 |
+| 50 | Whitfield Diffie & Martin Hellman | 2015 |
+| 51 | Tim Berners-Lee | 2016 |
+| 52 | John Hennessy & David Patterson | 2017 |
+| 53 | Yann LeCun, Geoffrey Hinton & Yoshua Bengio | 2018 |
+| 54 | Ed Catmull & Pat Hanrahan | 2019 |
+| 55 | Alfred Aho & Jeffrey Ullman | 2020 |
+| 56 | Jack Dongarra | 2021 |
+| 57 | Bob Metcalfe | 2022 |
+| 58 | Avi Wigderson | 2023 |
+| 59 | Andrew Barto & Richard Sutton | 2024 |
 
 ---
 
