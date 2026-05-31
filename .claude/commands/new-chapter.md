@@ -6,6 +6,20 @@ Your job is to produce everything for that chapter. Work through these steps in 
 
 ---
 
+## Order of operations (Nirmal's preferred sequence)
+
+Run the chapter in this order. The understanding step matters more than the social posts — never lead with LinkedIn/X.
+
+1. **Research** — do all of it first (Step 1).
+2. **Code** — write and actually run concept.py and implementation.py until they work, tests pass, verbose works (Steps 2, 4a, 4b). Also write the README (Step 3) so the chapter is complete on disk.
+3. **Explain the winner's work to Nirmal, in this window, at three levels — like he is 5, then 10, then 20 (CS grad).** This is an interactive teaching conversation, not a dump. Go slow. One idea at a time, real numbers, visualizations first for anything abstract. Lead with what the thing IS before any code. After each level, stop and check it landed before moving up. Do NOT fast-forward to the conclusion. This is the part Nirmal cares about most — it is how he understands the material well enough to write his My Take. See "Code walkthrough guidance" below for how slow is slow.
+4. **Share the work in this window** — once he understands it, show the chapter: what was built, how to run it, that it's committed/pushed.
+5. **LinkedIn and X posts — last, and shared separately** (Steps 6, 7). Only after everything above. Do not bundle these into the first reply. They are the lowest priority of the chapter.
+
+The numbered Steps below are the detailed spec for each piece. The sequence above governs the order you present things to Nirmal.
+
+---
+
 ## Step 1 — Research
 
 Find out:
