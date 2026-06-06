@@ -55,6 +55,8 @@ Split image: left = before the contribution, right = after. Dark background, mon
 - 01: Alan Jay Perlis (1966) — first compiler (IT), ALGOL 60
 - 02: Maurice Wilkes (1967) — microprogramming, control store as ROM
 - 03: Richard Hamming (1968) — error-correcting codes, Hamming(7,4)
+- 04: Marvin Minsky (1969) — artificial intelligence, perceptrons
+- 05: James H. Wilkinson (1970) — backward error analysis, numerical stability
 
 ## Next
-- 04: Marvin Minsky (1969) — artificial intelligence, perceptrons
+- 06: John McCarthy (1971) — LISP, time-sharing, AI
