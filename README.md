@@ -34,6 +34,7 @@ Each week:
 | 02 | Maurice Wilkes | 1967 | Invented microprogramming — machine instructions implemented as ROM microcode, not hardwired logic | [implementation.py](./02-maurice-wilkes-1967/implementation.py) | [README](./02-maurice-wilkes-1967/README.md) |
 | 03 | Richard Hamming | 1968 | Invented error-correcting codes — parity bits that locate and fix a flipped bit without retransmission | [implementation.py](./03-richard-hamming-1968/implementation.py) | [README](./03-richard-hamming-1968/README.md) |
 | 04 | Marvin Minsky | 1969 | Proved that single-layer perceptrons cannot learn XOR — forcing the field toward multi-layer networks and eventually deep learning | [implementation.py](./04-marvin-minsky-1969/implementation.py) | [README](./04-marvin-minsky-1969/README.md) |
+| 05 | James H. Wilkinson | 1970 | Invented backward error analysis — judge an algorithm by what nearby problem its answer solves exactly, separating algorithm stability from problem conditioning | [implementation.py](./05-james-wilkinson-1970/implementation.py) | [README](./05-james-wilkinson-1970/README.md) |
 
 ---
 
