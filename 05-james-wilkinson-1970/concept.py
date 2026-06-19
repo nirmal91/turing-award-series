@@ -19,9 +19,32 @@ from fractions import Fraction
 
 
 def solve(A, b):
-    """Plain Gaussian elimination in floating point. Returns x with A x = b."""
+    """Plain Gaussian elimination in floating point. Returns x with A x = b.
+
+    Inputs:
+      A  the coefficient grid: a list of rows, one row per equation.
+      b  the right-hand sides: a flat list of numbers, one per equation.
+      x  the unknowns we solve for and return.
+
+    Example. For the 3-equation system
+        2x + 1y + 1z = 8
+        1x + 3y + 2z = 13
+        1x + 0y + 0z = 2
+    you call solve(A, b) with
+        A = [[2, 1, 1],
+             [1, 3, 2],
+             [1, 0, 0]]
+        b = [8, 13, 2]
+    """
     n = len(b)
-    M = [row[:] + [b[i]] for i, row in enumerate(A)]   # augmented matrix
+
+    # Augmented matrix M: weld b onto A as one extra column so that every row
+    # operation below sweeps the right-hand side too and the equations stay
+    # intact. For the example above, M becomes
+    #     [[2, 1, 1,  8],
+    #      [1, 3, 2, 13],
+    #      [1, 0, 0,  2]]
+    M = [row[:] + [b[i]] for i, row in enumerate(A)]
     for k in range(n):
         for i in range(k + 1, n):
             f = M[i][k] / M[k][k]
