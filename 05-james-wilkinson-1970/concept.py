@@ -45,9 +45,24 @@ def solve(A, b):
     #      [1, 3, 2, 13],
     #      [1, 0, 0,  2]]
     M = [row[:] + [b[i]] for i, row in enumerate(A)]
+
+    # Elimination: drive M down to an upper triangle (zeros below the diagonal).
+    # k is the pivot row. For each pivot we look at every row BELOW it and
+    # cancel the column-k variable out of that lower row.
     for k in range(n):
         for i in range(k + 1, n):
+            # Compare the lower row (i) against the pivot row (k) on the one
+            # variable we are cancelling, column k. f is the ratio between them:
+            # how many pivot rows fit into row i at that spot. Subtracting
+            # f * (pivot row) from row i then makes its column-k entry zero.
+            #
+            # Example, first pivot of the system in the docstring above:
+            #   pivot row 0 has 2x, row 1 has 1x  ->  f = 1 / 2 = 0.5
+            #   so we subtract half of row 0 from row 1 to kill its x.
             f = M[i][k] / M[k][k]
+
+            # Apply that subtraction across the whole row, including the b column
+            # at the end, so the equation stays balanced.
             for j in range(k, n + 1):
                 M[i][j] -= f * M[k][j]
     x = [0.0] * n
