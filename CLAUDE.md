@@ -27,6 +27,7 @@ Both stored at `/home/user/.claude/commands/`
 - `--test` flag: 10+ test cases
 - `--verbose` flag: shows internals
 - Mirrors the historical concept, not just a simulation
+- Prefer readable code over clever one-liners: explicit loops and `if` statements over dense comprehensions, generator expressions, and short-circuits. Optimize only when production needs it.
 
 ## Nirmal's writing voice
 - Short sentences, direct, no fluff
