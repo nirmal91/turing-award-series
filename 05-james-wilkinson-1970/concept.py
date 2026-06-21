@@ -15,9 +15,6 @@ next to the one you posed. That gap is the BACKWARD error, and for a good
 algorithm it stays near machine precision even when the forward error is huge.
 """
 
-from fractions import Fraction
-
-
 def solve(A, b):
     """Plain Gaussian elimination in floating point. Returns x with A x = b.
 
@@ -54,6 +51,10 @@ def solve(A, b):
     # Elimination: drive M down to an upper triangle (zeros below the diagonal).
     # k is the pivot row. For each pivot we look at every row BELOW it and
     # cancel the column-k variable out of that lower row.
+    #
+    # Note: this is plain elimination with no pivoting, on purpose, to keep the
+    # idea simple. A zero on the diagonal (e.g. [[0, 1], [1, 0]]) would divide by
+    # zero here. implementation.py adds partial pivoting to handle that safely.
     for k in range(n):
         for i in range(k + 1, n):
             # Compare the lower row (i) against the pivot row (k) on the one

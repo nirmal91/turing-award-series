@@ -4,7 +4,7 @@ Based on the work of J. H. Wilkinson (Turing Award, 1970).
 
 Usage:
     python implementation.py            # guided demo
-    python implementation.py --test     # test suite (17 cases)
+    python implementation.py --test     # test suite (18 cases)
     python implementation.py --verbose  # show pivoting steps and residuals
 
 Before Wilkinson: people bounded the FORWARD error of a calculation, asking
@@ -48,17 +48,43 @@ def gepp(A, b, verbose=False):
     backward stable in practice. This is exactly what LAPACK still does today.
     """
     n = len(b)
-    M = [list(map(float, row)) + [float(b[i])] for i, row in enumerate(A)]
 
+    # Shape check: A must be square and match the length of b.
+    if len(A) != n:
+        raise ValueError("A must have one row per entry of b")
+    for row in A:
+        if len(row) != n:
+            raise ValueError("A must be square (n x n) to match b")
+
+    # Build the augmented matrix M: each row of A as floats, with its b value
+    # tacked on as a final column so row operations touch the right-hand side too.
+    M = []
+    for i in range(n):
+        augmented_row = []
+        for value in A[i]:
+            augmented_row.append(float(value))
+        augmented_row.append(float(b[i]))
+        M.append(augmented_row)
+
+    # Forward elimination: drive M to an upper triangle.
     for k in range(n):
-        # partial pivoting: choose the largest-magnitude entry in column k
-        pivot = max(range(k, n), key=lambda i: abs(M[i][k]))
+        # Partial pivoting: find the row at or below k with the largest |entry|
+        # in column k, and move it up to be the pivot row.
+        pivot = k
+        for i in range(k + 1, n):
+            if abs(M[i][k]) > abs(M[pivot][k]):
+                pivot = i
+
         if M[pivot][k] == 0.0:
             raise ZeroDivisionError("matrix is singular")
+
         if pivot != k:
             M[k], M[pivot] = M[pivot], M[k]
             if verbose:
                 print(f"    col {k}: swap row {k} <-> row {pivot}  (pivot {M[k][k]:.4g})")
+
+        # Subtract a multiple of the pivot row from every row below it so that
+        # column k becomes zero beneath the diagonal.
         for i in range(k + 1, n):
             f = M[i][k] / M[k][k]
             for j in range(k, n + 1):
@@ -66,66 +92,143 @@ def gepp(A, b, verbose=False):
             if verbose and f != 0.0:
                 print(f"    col {k}: row {i} -= {f:.4g} * row {k}")
 
-    # back-substitution
+    # Back-substitution: solve from the bottom row up.
     x = [0.0] * n
     for i in range(n - 1, -1, -1):
-        s = M[i][n] - sum(M[i][j] * x[j] for j in range(i + 1, n))
+        s = M[i][n]
+        for j in range(i + 1, n):
+            s -= M[i][j] * x[j]
         x[i] = s / M[i][i]
     return x
 
 
 # ── Exact arithmetic, used only to know the truth we compare against ────────────
 
+def find_pivot_row(M, k, n):
+    """Return the first row at or below k with a nonzero entry in column k.
+    Returns None if the whole column is zero (the matrix is singular)."""
+    for i in range(k, n):
+        if M[i][k] != 0:
+            return i
+    return None
+
+
 def exact_solve(A, b):
     """Exact solution using rational arithmetic (no rounding). The 'true' answer."""
     n = len(b)
-    M = [[Fraction(A[i][j]) for j in range(n)] + [Fraction(b[i])] for i in range(n)]
+
+    # Build the augmented matrix as exact Fractions.
+    M = []
+    for i in range(n):
+        augmented_row = []
+        for j in range(n):
+            augmented_row.append(Fraction(A[i][j]))
+        augmented_row.append(Fraction(b[i]))
+        M.append(augmented_row)
+
+    # Gauss-Jordan elimination, clearing column k from every other row.
     for k in range(n):
-        pivot = next(i for i in range(k, n) if M[i][k] != 0)
+        pivot = find_pivot_row(M, k, n)
+        if pivot is None:
+            raise ZeroDivisionError("matrix is singular")
         if pivot != k:
             M[k], M[pivot] = M[pivot], M[k]
+
         piv = M[k][k]
         for i in range(n):
             if i != k and M[i][k] != 0:
                 f = M[i][k] / piv
                 for j in range(k, n + 1):
                     M[i][j] -= f * M[k][j]
-    return [M[i][n] / M[i][i] for i in range(n)]
+
+    # Each row now reads  M[i][i] * x[i] = M[i][n], so divide to get x[i].
+    x = []
+    for i in range(n):
+        x.append(M[i][n] / M[i][i])
+    return x
 
 
 def exact_inverse(A):
     """Exact inverse via Gauss-Jordan on rationals. Used for the condition number."""
     n = len(A)
-    M = [[Fraction(A[i][j]) for j in range(n)] +
-         [Fraction(1 if i == j else 0) for j in range(n)] for i in range(n)]
+
+    # Build the augmented matrix [A | I] as exact Fractions.
+    M = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(Fraction(A[i][j]))
+        for j in range(n):
+            if i == j:
+                row.append(Fraction(1))
+            else:
+                row.append(Fraction(0))
+        M.append(row)
+
+    # Gauss-Jordan: turn the left half into the identity; the right half becomes A^-1.
     for k in range(n):
-        pivot = next(i for i in range(k, n) if M[i][k] != 0)
+        pivot = find_pivot_row(M, k, n)
+        if pivot is None:
+            raise ZeroDivisionError("matrix is singular")
         if pivot != k:
             M[k], M[pivot] = M[pivot], M[k]
+
+        # Scale the pivot row so the pivot entry becomes 1.
         piv = M[k][k]
-        M[k] = [v / piv for v in M[k]]
+        for j in range(2 * n):
+            M[k][j] = M[k][j] / piv
+
+        # Clear column k from every other row.
         for i in range(n):
             if i != k and M[i][k] != 0:
                 f = M[i][k]
-                M[i] = [M[i][j] - f * M[k][j] for j in range(2 * n)]
-    return [[M[i][j + n] for j in range(n)] for i in range(n)]
+                for j in range(2 * n):
+                    M[i][j] = M[i][j] - f * M[k][j]
+
+    # The inverse is the right half of the augmented matrix.
+    inverse = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(M[i][j + n])
+        inverse.append(row)
+    return inverse
 
 
 # ── Norms, residual, and the two errors ─────────────────────────────────────────
 
 def inf_norm_matrix(A):
-    """Infinity norm: the largest absolute row sum."""
-    return max(sum(abs(float(v)) for v in row) for row in A)
+    """Infinity norm: the largest absolute row sum (the 'fattest' row)."""
+    largest = 0.0
+    for row in A:
+        row_sum = 0.0
+        for value in row:
+            row_sum += abs(float(value))
+        if row_sum > largest:
+            largest = row_sum
+    return largest
 
 
 def inf_norm_vec(v):
-    return max(abs(float(x)) for x in v)
+    """Largest absolute entry."""
+    largest = 0.0
+    for value in v:
+        size = abs(float(value))
+        if size > largest:
+            largest = size
+    return largest
 
 
 def residual(A, x, b):
     """r = b - A x. The leftover when the computed x is plugged back in."""
     n = len(b)
-    return [float(b[i]) - sum(float(A[i][j]) * x[j] for j in range(n)) for i in range(n)]
+    r = []
+    for i in range(n):
+        left_side = 0.0
+        for j in range(n):
+            left_side += float(A[i][j]) * x[j]
+        r.append(float(b[i]) - left_side)
+    return r
 
 
 def backward_error(A, x, b):
@@ -137,14 +240,25 @@ def backward_error(A, x, b):
     """
     r = residual(A, x, b)
     denom = inf_norm_matrix(A) * inf_norm_vec(x) + inf_norm_vec(b)
-    return inf_norm_vec(r) / denom if denom else 0.0
+    if denom == 0:
+        return 0.0
+    return inf_norm_vec(r) / denom
 
 
 def forward_error(x, x_true):
     """Relative distance from the true solution: ||x - x_true|| / ||x_true||."""
-    num = max(abs(x[i] - float(x_true[i])) for i in range(len(x)))
-    den = inf_norm_vec(x_true)
-    return num / den if den else num
+    largest_gap = 0.0
+    for i in range(len(x)):
+        gap = abs(x[i] - float(x_true[i]))
+        if gap > largest_gap:
+            largest_gap = gap
+
+    size = inf_norm_vec(x_true)
+    if size == 0:
+        # The true solution is all zeros, so there is no relative scale to
+        # divide by; fall back to the absolute gap.
+        return largest_gap
+    return largest_gap / size
 
 
 def condition_number(A):
@@ -154,7 +268,26 @@ def condition_number(A):
 
 def hilbert(n):
     """Hilbert matrix H[i][j] = 1/(i+j+1). The classic ill-conditioned example."""
-    return [[1.0 / (i + j + 1) for j in range(n)] for i in range(n)]
+    H = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(1.0 / (i + j + 1))
+        H.append(row)
+    return H
+
+
+def hilbert_rhs(A, x_true):
+    """Build b so that A x_true = b, using exact arithmetic, then round to float.
+    Lets us hand the solver a system whose true answer we already know."""
+    n = len(x_true)
+    b = []
+    for i in range(n):
+        exact_value = Fraction(0)
+        for j in range(n):
+            exact_value += Fraction(A[i][j]) * Fraction(x_true[j])
+        b.append(float(exact_value))
+    return b
 
 
 # ── Reporting ───────────────────────────────────────────────────────────────────
@@ -170,8 +303,14 @@ def analyze(A, b, x_true=None, label="", verbose=False):
 
     if verbose:
         r = residual(A, x, b)
-        print(f"    computed x : {[round(v, 6) for v in x]}")
-        print(f"    residual   : {['%.1e' % v for v in r]}")
+        rounded_x = []
+        for value in x:
+            rounded_x.append(round(value, 6))
+        formatted_r = []
+        for value in r:
+            formatted_r.append("%.1e" % value)
+        print(f"    computed x : {rounded_x}")
+        print(f"    residual   : {formatted_r}")
 
     print(f"  {label}")
     print(f"    condition number : {cond:.2e}")
@@ -205,8 +344,7 @@ def demo(verbose=False):
     for n in (4, 6, 8, 10, 12):
         A = hilbert(n)
         x_true = [1.0] * n
-        b = [float(sum(Fraction(A[i][j]) * Fraction(x_true[j]) for j in range(n)))
-             for i in range(n)]
+        b = hilbert_rhs(A, x_true)
         analyze(A, b, x_true=x_true, label=f"Hilbert {n}x{n}", verbose=verbose)
 
     print("The solver never misbehaves. When the answer is bad, the PROBLEM is")
@@ -219,9 +357,9 @@ def run_tests():
     passed = 0
     failed = 0
 
-    def check(name, cond):
+    def check(name, condition):
         nonlocal passed, failed
-        if cond:
+        if condition:
             print(f"  PASS  {name}")
             passed += 1
         else:
@@ -229,7 +367,10 @@ def run_tests():
             failed += 1
 
     def close(a, b, tol=1e-9):
-        return all(abs(a[i] - b[i]) <= tol for i in range(len(a)))
+        for i in range(len(a)):
+            if abs(a[i] - b[i]) > tol:
+                return False
+        return True
 
     # 1. GEPP solves a simple 2x2 system
     x = gepp([[2.0, 1.0], [1.0, 3.0]], [3.0, 4.0])
@@ -249,8 +390,9 @@ def run_tests():
 
     # 5. exact_inverse of a 2x2
     inv = exact_inverse([[4, 7], [2, 6]])
-    check("exact_inverse 2x2", inv == [[Fraction(6, 10), Fraction(-7, 10)],
-                                       [Fraction(-2, 10), Fraction(4, 10)]])
+    expected_inv = [[Fraction(6, 10), Fraction(-7, 10)],
+                    [Fraction(-2, 10), Fraction(4, 10)]]
+    check("exact_inverse 2x2", inv == expected_inv)
 
     # 6. inf_norm_matrix is the max absolute row sum
     check("inf_norm_matrix", inf_norm_matrix([[1, -2], [3, 4]]) == 7)
@@ -272,20 +414,25 @@ def run_tests():
         ([[4.0, 3.0], [6.0, 3.0]], [10.0, 12.0]),
         ([[1.0, 2.0, 3.0], [2.0, 5.0, 3.0], [1.0, 0.0, 8.0]], [6.0, 10.0, 9.0]),
     ]
-    check("backward error <= 1e-13 on well-posed systems",
-          all(backward_error(A, gepp(A, b), b) <= 1e-13 for A, b in systems))
+    backward_small = True
+    for A_sys, b_sys in systems:
+        if backward_error(A_sys, gepp(A_sys, b_sys), b_sys) > 1e-13:
+            backward_small = False
+    check("backward error <= 1e-13 on well-posed systems", backward_small)
 
     # 11. forward error is zero for an exact match
     check("forward error of exact match == 0", forward_error([1.0, 2.0], [1.0, 2.0]) == 0.0)
 
     # 12. condition number of Hilbert grows with n
-    conds = [condition_number(hilbert(n)) for n in (3, 5, 7)]
-    check("cond(Hilbert) grows with n", conds[0] < conds[1] < conds[2])
+    cond3 = condition_number(hilbert(3))
+    cond5 = condition_number(hilbert(5))
+    cond7 = condition_number(hilbert(7))
+    check("cond(Hilbert) grows with n", cond3 < cond5 < cond7)
 
     # 13. THE central result: backward error stays tiny even as forward error blows up
     A = hilbert(12)
     xt = [1.0] * 12
-    b = [float(sum(Fraction(A[i][j]) * Fraction(xt[j]) for j in range(12))) for i in range(12)]
+    b = hilbert_rhs(A, xt)
     x = gepp(A, b)
     be = backward_error(A, x, b)
     fe = forward_error(x, xt)
@@ -301,24 +448,27 @@ def run_tests():
     for n in (4, 6, 8, 10):
         A = hilbert(n)
         xt = [1.0] * n
-        b = [float(sum(Fraction(A[i][j]) * Fraction(xt[j]) for j in range(n))) for i in range(n)]
+        b = hilbert_rhs(A, xt)
         if backward_error(A, gepp(A, b), b) > 1e-13:
             stable = False
     check("GEPP backward-stable across Hilbert sweep", stable)
 
     # 16. singular matrix is detected
+    singular_raised = False
     try:
         gepp([[1.0, 2.0], [2.0, 4.0]], [1.0, 2.0])
-        check("singular matrix raises", False)
     except ZeroDivisionError:
-        check("singular matrix raises", True)
+        singular_raised = True
+    check("singular matrix raises", singular_raised)
 
-    # 17. GEPP agrees with the exact solution on a well-conditioned random-ish system
+    # 17. GEPP agrees with the exact solution on a well-conditioned system
     A = [[10.0, 2.0, 1.0], [1.0, 8.0, 3.0], [2.0, 1.0, 9.0]]
     b = [13.0, 12.0, 12.0]
     x = gepp(A, b)
-    xe = [float(v) for v in exact_solve(A, b)]
-    check("gepp matches exact on well-conditioned system", close(x, xe, tol=1e-9))
+    exact_x = []
+    for value in exact_solve(A, b):
+        exact_x.append(float(value))
+    check("gepp matches exact on well-conditioned system", close(x, exact_x, tol=1e-9))
 
     print(f"\n  {passed} passed, {failed} failed")
     return failed == 0
