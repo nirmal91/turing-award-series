@@ -44,6 +44,11 @@ def solve(A, b):
     #     [[2, 1, 1,  8],
     #      [1, 3, 2, 13],
     #      [1, 0, 0,  2]]
+    #
+    # Mechanics of the line below:
+    #   enumerate(A)  -> yields (i, row) pairs: the index and that row of A
+    #   row[:]        -> a COPY of the row, so editing M never touches A
+    #   + [b[i]]      -> joins two lists, appending this row's b value on the end
     M = [row[:] + [b[i]] for i, row in enumerate(A)]
 
     # Elimination: drive M down to an upper triangle (zeros below the diagonal).
@@ -65,10 +70,15 @@ def solve(A, b):
             # at the end, so the equation stays balanced.
             for j in range(k, n + 1):
                 M[i][j] -= f * M[k][j]
-    x = [0.0] * n
-    for i in range(n - 1, -1, -1):
+    # Back-substitution: climb from the bottom row upward. By the time we reach a
+    # row, every variable to its right is already solved, so the row has just one
+    # unknown left. Subtract the known parts, then divide by the diagonal.
+    x = [0.0] * n                      # answers, filled in as we go
+    for i in range(n - 1, -1, -1):     # range(n-1, -1, -1) counts DOWN: n-1, ..., 0
+        # M[i][n] is this row's b value. The sum is the already-solved variables
+        # to the right (columns i+1 .. n-1), moved over to the other side.
         s = M[i][n] - sum(M[i][j] * x[j] for j in range(i + 1, n))
-        x[i] = s / M[i][i]
+        x[i] = s / M[i][i]             # divide by the diagonal to isolate x[i]
     return x
 
 
