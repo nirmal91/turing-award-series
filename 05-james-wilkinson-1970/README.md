@@ -6,7 +6,17 @@
 
 ## My Take
 
-*[Placeholder — written by Nirmal, not AI]*
+The entire AI data centers' compute resources are all trying to fight over getting more FLOPs (Floating Point Operations). Creating a big model is trillions times trillions of FLOPs, run for multiple weeks. But people didn't trust the results of FLOPs not so long ago, when computers were very new. There was a lot of doubt that floating-point arithmetic could happen correctly. There's some rounding that happens, and the worry was that all the rounding would lead to a really big error and the answers would be wrong.
+
+It was Wilkinson, who got the Turing Award in 1970, who changed that. He helped introduce a new way to measure the answer and check if we can trust it. Forward errors are hard to compute in general because you need the right answer and then do the subtraction, but backward errors are much easier to compute. It's how much you have to nudge the inputs to make your answer exactly right. Instead of thinking if the result answered the question perfectly, think what question did the result answer, and for very well-designed algorithms the answer is very, very little, 10 to the minus 16 or something very small.
+
+This became the gold standard on how to measure how good algorithms are. Backward errors are always in reason; they stay about the size of the rounding. But errors can still get big, and that's because of finicky inputs, not just because of algorithms. A finicky input blows up the error no matter what algorithm you use or what machine it runs on. How finicky the input is is called the condition number. So it comes together like this:
+
+```
+forward error  ≈  condition number  ×  backward error
+```
+
+TLDR: he helped build confidence in algorithms that do floating-point arithmetic, which is the foundation of everything in the AI world today.
 
 ---
 
