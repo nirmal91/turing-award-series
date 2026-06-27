@@ -6,7 +6,7 @@
 
 ## My Take
 
-The entire AI data centers' compute resources are all trying to fight over getting more FLOPs (Floating Point Operations). Creating a big model is trillions times trillions of FLOPs, run for multiple weeks. But people didn't trust the results of FLOPs not so long ago, when computers were very new. There was a lot of doubt that floating-point arithmetic could happen correctly. There's some rounding that happens, and the worry was that all the rounding would lead to a really big error and the answers would be wrong.
+The entire AI data centers' compute resources are all trying to fight over getting more FLOPs (Floating Point Operations). Creating a big model is trillions times trillions of FLOPs, run for multiple weeks. But people didn't trust the results of FLOPs not so long ago. There was a lot of doubt that floating-point arithmetic could happen correctly. There's some rounding that happens, and the worry was that all the rounding would lead to a really big error and the answers would be wrong.
 
 It was Wilkinson, who got the Turing Award in 1970, who changed that. He helped introduce a new way to measure the answer and check if we can trust it. Forward errors are hard to compute in general because you need the right answer and then do the subtraction, but backward errors are much easier to compute. It's how much you have to nudge the inputs to make your answer exactly right. Instead of thinking if the result answered the question perfectly, think what question did the result answer, and for very well-designed algorithms the answer is very, very little, 10 to the minus 16 or something very small.
 
