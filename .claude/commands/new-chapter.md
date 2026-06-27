@@ -175,7 +175,19 @@ Describe a split image for the LinkedIn/X post:
 
 ---
 
-## Step 9 — Commit and push
+## Step 9 — Substack post
+
+Substack is the canonical long-form home for the chapter. Publish it FIRST, then point LinkedIn and X to it (so the social posts have a destination).
+
+- **Body:** use the My Take verbatim. Do NOT rewrite it into a fresh essay — the My Take is already in Nirmal's voice, and every fresh rewrite was worse. Attach the cover image at the top, end with the GitHub repo link.
+- **Title:** lead with a hook that lands for a cold reader, usually the modern/AI angle, and keep the week marker. Example (Week 05): "Week 05: James Wilkinson, and the math under every AI model."
+- **Subtitle:** one line capturing the core question or payoff. Example: "How to tell if a bad answer is the algorithm's fault or the input's?"
+- **Tags:** a handful of discovery tags. Lead with broad-reach ones (Artificial Intelligence, Computer Science), then the specific topic and History of Computing.
+- **Link:** point readers to the GitHub repo for the code and full writeup.
+
+---
+
+## Step 10 — Commit and push
 
 **Do not push directly to main.** The repo has a hook that blocks direct pushes to main.
 
@@ -202,6 +214,7 @@ gh pr merge --merge
 - [ ] LinkedIn post drafted (Week 02+ format)
 - [ ] X thread drafted (5 tweets)
 - [ ] Image spec written (no text labels)
+- [ ] Substack post drafted (My Take as body, AI-hook title, subtitle, tags)
 - [ ] Pushed via feature branch and PR, merged to main
 
 ---
@@ -239,5 +252,11 @@ Tweet 4 of the X thread should connect to the most concrete modern example: name
 For algorithm/concept chapters, the image should show the actual data being processed, not an abstract before/after. The Hamming image showed real bits (1 0 1 1), the actual encoding, a flipped bit, and the syndrome fixing it. That's more useful than a metaphor.
 
 Expect two generations minimum. After the first image comes back: check labels are factually correct, check no decorative elements crept in, check the visual tells the right story. Give specific feedback on what to fix.
+
+## Substack guidance
+
+The body IS the My Take, word for word. Do not write a separate essay — every attempt to expand or restyle it read worse than Nirmal's own take. The post is: AI-hook title, one-line subtitle, cover image, the My Take verbatim, then the GitHub link.
+
+The title should pull in a stranger (lead with the modern/AI relevance) while keeping the "Week XX" series marker. The subtitle is the one place to state the core question the chapter answers. Publish Substack first, then LinkedIn ("Link in comments" → the Substack post) and X (tweet 5 can stay the GitHub repo, where devs want the code).
 
 $ARGUMENTS
