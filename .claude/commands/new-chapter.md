@@ -281,6 +281,8 @@ CHROME=$(ls /opt/pw-browsers/chromium-*/chrome-linux/chrome | head -1)
 
 Then `Read` the PNG yourself first to confirm it rendered correctly (nothing clipped, labels right), and only then SendUserFile it with `display: "render"`. Give the SVG ~40px of bottom padding beyond your content so the window height doesn't clip the last line. Teaching images MAY have text labels (they aid understanding); only the social/cover image in Step 8 must be label-free.
 
+**Make them big.** Nirmal asked for high-res, monitor-filling images. Author the SVG at a 1920x1080 (16:9) canvas with large fonts (title ~38, section headers ~34, body ~30, small labels ~24) and thicker strokes (~2.5), then render at the 2x device scale so the PNG is 3840x2160 (true 4K). Small 900px canvases with 14px text read as tiny; do not use them. One clear idea per image at this size beats a cramped multi-panel.
+
 ## LinkedIn post guidance
 
 Start from the My Take text, not a fresh draft. Trim to LinkedIn length, add the week opener and "Link in comments." The My Take already has Nirmal's voice — every fresh draft was worse.
