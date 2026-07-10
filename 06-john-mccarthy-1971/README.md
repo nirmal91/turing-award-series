@@ -36,6 +36,7 @@ What it supports:
 ```bash
 python3 concept.py                      # the core idea, plain
 python3 implementation.py               # interactive REPL
+python3 implementation.py practice.lisp # load and run a Lisp source file
 python3 implementation.py --test        # test suite (17 cases)
 python3 implementation.py --verbose     # REPL that prints every eval step
 ```

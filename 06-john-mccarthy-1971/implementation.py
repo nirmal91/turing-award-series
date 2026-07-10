@@ -52,9 +52,19 @@ class Symbol(str):
 
 
 def tokenize(text):
-    """Split source text into a flat list of tokens: '(', ')', and atoms."""
+    """Split source text into a flat list of tokens: '(', ')', and atoms.
+
+    A semicolon begins a comment that runs to the end of its line, the same
+    convention real Lisps use, so a source file can be annotated.
+    """
+    # Drop comments line by line: everything after a ';' is thrown away.
+    cleaned = []
+    for line in text.split("\n"):
+        if ";" in line:
+            line = line[:line.index(";")]
+        cleaned.append(line)
     # Pad the parentheses with spaces so a plain split separates them from atoms.
-    spaced = text.replace("(", " ( ").replace(")", " ) ")
+    spaced = " ".join(cleaned).replace("(", " ( ").replace(")", " ) ")
     return spaced.split()
 
 
@@ -99,6 +109,17 @@ def read(text):
     """Parse the first complete S-expression out of text."""
     expr, _ = parse(tokenize(text))
     return expr
+
+
+def read_all(text):
+    """Parse every top-level S-expression in text, in order. This is what lets a
+    whole file (many definitions, spread over many lines) be read at once."""
+    tokens = tokenize(text)
+    forms = []
+    while len(tokens) > 0:
+        expr, tokens = parse(tokens)
+        forms.append(expr)
+    return forms
 
 
 # ── Environment: names -> values, with lexical scoping ───────────────────────────
@@ -282,6 +303,18 @@ def run(text, env):
     return seval(read(text), env)
 
 
+def run_file(path):
+    """Load and run a Lisp source file. Every top-level expression is evaluated
+    in order, in one shared environment, so later expressions can use names that
+    earlier ones defined. Each form is echoed with the value it produced."""
+    with open(path) as source_file:
+        source = source_file.read()
+    env = global_env()
+    for form in read_all(source):
+        value = seval(form, env)
+        print(to_str(form) + "   =>   " + to_str(value))
+
+
 # ── REPL ─────────────────────────────────────────────────────────────────────────
 
 BANNER = """A Lisp interpreter (John McCarthy, 1960).
@@ -380,6 +413,11 @@ def main():
     if "--verbose" in args:
         VERBOSE = True
         print("(verbose mode: every eval step is printed)\n")
+    # A non-flag argument is treated as a Lisp source file to load and run.
+    files = [a for a in args if not a.startswith("--")]
+    if len(files) > 0:
+        run_file(files[0])
+        return
     repl()
 
 
