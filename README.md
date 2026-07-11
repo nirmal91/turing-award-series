@@ -35,6 +35,7 @@ Each week:
 | 03 | Richard Hamming | 1968 | Invented error-correcting codes — parity bits that locate and fix a flipped bit without retransmission | [implementation.py](./03-richard-hamming-1968/implementation.py) | [README](./03-richard-hamming-1968/README.md) |
 | 04 | Marvin Minsky | 1969 | Proved that single-layer perceptrons cannot learn XOR — forcing the field toward multi-layer networks and eventually deep learning | [implementation.py](./04-marvin-minsky-1969/implementation.py) | [README](./04-marvin-minsky-1969/README.md) |
 | 05 | James H. Wilkinson | 1970 | Backward error analysis — judge an algorithm by how small a change to the inputs would make its answer exact, separating a stable method from an ill-conditioned problem | [implementation.py](./05-james-wilkinson-1970/implementation.py) | [README](./05-james-wilkinson-1970/README.md) |
+| 06 | John McCarthy | 1971 | Invented Lisp — code and data share one shape, so the whole language fits in a one-page `eval` written in itself; also gave us the conditional expression and garbage collection | [implementation.py](./06-john-mccarthy-1971/implementation.py) | [README](./06-john-mccarthy-1971/README.md) |
 
 ---
 
