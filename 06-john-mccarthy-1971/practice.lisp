@@ -16,3 +16,8 @@
 
 ; 3. build (a b c) by consing a onto (b c)
 (cons (quote a) (quote (b c)))
+
+; 4. give a function a name with define, then call it
+;    (lambda (n) (* n n)) is the nameless function; define pins the name "square" to it
+(define square (lambda (n) (* n n)))
+(square 9)
