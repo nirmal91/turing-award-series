@@ -200,7 +200,8 @@ Describe a split image for the LinkedIn/X post:
 Substack is the canonical long-form home for the chapter. Publish it FIRST, then point LinkedIn and X to it (so the social posts have a destination).
 
 - **Body:** use the My Take verbatim. Do NOT rewrite it into a fresh essay — the My Take is already in Nirmal's voice, and every fresh rewrite was worse. Attach the cover image at the top, end with the GitHub repo link.
-- **Title:** lead with a hook that lands for a cold reader, usually the modern/AI angle, and keep the week marker. Example (Week 05): "Week 05: James Wilkinson, and the math under every AI model."
+- **Title:** lead with a hook that lands for a cold reader, usually the modern/AI angle. The week marker lives in the SUBTITLE, not the title. Weeks 01–04 used hook-first titles ("The First Compiler: How Alan Jay Perlis Made Programming Human"); 05–06 used name-first ("John McCarthy, the man who named AI..."). Ask Nirmal which pattern to use for the new week until he settles it.
+- **Subtitle format (settled, follow exactly):** `Week NN of the Turing Award Series — <lowercase clause>`. Em dash as the separator, lowercase after it, no trailing period. Example (Week 02): "Week 02 of the Turing Award Series — how microprogramming turned hardware problems into software problems."
 - **Subtitle:** one line capturing the core question or payoff. Example: "How to tell if a bad answer is the algorithm's fault or the input's?"
 - **Tags:** a handful of discovery tags. Lead with broad-reach ones (Artificial Intelligence, Computer Science), then the specific topic and History of Computing.
 - **Link:** point readers to the GitHub repo for the code and full writeup.
