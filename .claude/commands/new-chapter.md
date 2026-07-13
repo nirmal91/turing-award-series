@@ -26,6 +26,26 @@ Default assumption for a new chapter: after the research and the files exist, Ni
 
 ---
 
+## Standing rules (learned from Week 06 — do these without being asked)
+
+**When Nirmal pushes back, update THIS file in the same turn.** A correction is a standing rule, not a one-off fix. Don't wait for him to say "update my skills."
+
+**Public vs private.** Never mention interviews, job prep, or any private goal in the public series repo, the blog, or social posts. If he wants study/prep material, keep it in chat, the scratchpad, or a private repo he names. If GitHub access isn't scoped to that private repo, send him the file and say so.
+
+**Edit his words, never replace them.** When he drafts My Take / post text, your job is: fix facts, fix grammar he'd want fixed, and flag risky claims (e.g. "the first" → "one of the first", misattributed inventions like compilers-to-McCarthy). Do NOT expand, restyle, or "improve" it. Every fresh rewrite has been worse. Watch for AI tells (see Wikipedia "Signs of AI writing"): doubled restatements, three-part parallel structures, section-header-speak like "Another distinct part", em dashes, puffery.
+
+**Hands-on coding is part of every chapter.** implementation.py must support running a source file (`python3 implementation.py file.ext`), not just a REPL. Create a scratch file for him. He writes, you run and show real output. He also runs things locally: proactively give clone/checkout/branch/run commands (pure stdlib, python3 only).
+
+**Deliver posts as complete packages.** A post handed to him = exact final text + the exact image file(s) by name + the exact comment text, all in one message. He should never have to ask "what photo?" or "what's the first comment?".
+
+**Don't re-explain the series intent.** No "AI-generated vs human-written" framing in Week 02+ posts, LinkedIn or X. Readers know. He has said this twice.
+
+**One idea per image.** A diagram that needs three panels is three diagrams. Verify every rendered PNG by Reading it before sending (check for bottom clipping — give SVGs ~40px extra bottom padding). Post-ready images get clean filenames: `weekNN-1-cover-<slug>.png` etc., sent with display "attach" for downloading.
+
+**Re-share artifact links.** Every time the side-panel gallery or any artifact is updated, paste its URL again in the reply. He loses track of links buried in old messages.
+
+---
+
 ## Step 1 — Research
 
 Find out:
@@ -160,26 +180,29 @@ Add a row to the index table in /home/user/turing-award-series/README.md:
 
 ## Step 6 — LinkedIn post
 
-Write a LinkedIn post in Nirmal's voice. Rules:
+Build it FROM the My Take (edit down, never redraft). Rules:
 - Short sentences. No em dashes. No hyphens. No rule-of-three lists. No AI-sounding openers.
-- **For Week 02 onward:** Open with "Week XX of my learning series on Turing Award winners:" followed by 1-2 sentences from My Take (the most concrete insight). Do not re-explain the series or the AI-generated vs human-written split in the opener.
-- 2-3 sentences on the winner's contribution — in plain language, what they did and why it matters today
+- Open with "Week XX of my learning series on Turing Award winners: Name."
+- **Length: medium.** Not a 4-line teaser (he pushed back: "I have a lot of good ideas that I want captured"), not the whole My Take (he pushed back: "too big"). Target ~4 short paragraphs: credentials line, the story/example paragraph, ONE core idea given real room (Week 06: the code-as-data chain), personal closer. Detail mechanisms stay in Substack.
+- Do not re-explain the series or the AI-generated vs human-written split. Ever. He has said this twice.
 - End with: "Link in comments."
 - No headings, no bullet points, no bold. Just paragraphs.
 
-Note: The full series setup (AI-generated, one section written by me, etc.) was in the Week 01 post. From Week 02 onward, readers know the series. Just tell them what this week's winner did.
+Deliver as a package: final text + image filename (ONE image on the post — multi-image becomes a collage and shrinks everything) + comment 1 text (one-line reason to click + the Substack URL) + comment 2 (optional: a second image with a one-liner). The cover/split image goes on the post; save the busier diagrams for comments, X, and Substack.
 
 ---
 
 ## Step 7 — X thread
 
-5 tweets. No numbers at the top. Each one is a reply to the previous.
+5 tweets. No numbers at the top. Each one is a reply to the previous. NO series-philosophy tweet (the old "AI generated vs human written" tweet 2 is retired — he cut it).
 
-- Tweet 1: Personal hook (rabbit holes, learning) + series announcement. Attach the image here.
-- Tweet 2: AI generated vs human written — the writing philosophy.
-- Tweet 3: This winner's contribution in plain language.
-- Tweet 4: The broader impact — why it still matters today, connection to something modern.
-- Tweet 5: github.com/nirmal91/turing-award-series
+- Tweet 1: Week XX + winner + the credentials hook. Attach the cover image.
+- Tweet 2: The story (before/after, the concrete example — e.g. the Socrates syllogism).
+- Tweet 3: The core idea in plain language. Attach the second image.
+- Tweet 4: Why it still matters today — name specific modern things. Attach the third image.
+- Tweet 5: Personal closer (his "after 20+ years..." style line) + Substack link + github.com/nirmal91/turing-award-series
+
+Keep each under 280 characters. He uses up to 3 images on X, 1 on LinkedIn.
 
 ---
 
@@ -202,23 +225,25 @@ Substack is the canonical long-form home for the chapter. Publish it FIRST, then
 - **Body:** use the My Take verbatim. Do NOT rewrite it into a fresh essay — the My Take is already in Nirmal's voice, and every fresh rewrite was worse. Attach the cover image at the top, end with the GitHub repo link.
 - **Title:** lead with a hook that lands for a cold reader, usually the modern/AI angle. The week marker lives in the SUBTITLE, not the title. Weeks 01–04 used hook-first titles ("The First Compiler: How Alan Jay Perlis Made Programming Human"); 05–06 used name-first ("John McCarthy, the man who named AI..."). Ask Nirmal which pattern to use for the new week until he settles it.
 - **Subtitle format (settled, follow exactly):** `Week NN of the Turing Award Series — <lowercase clause>`. Em dash as the separator, lowercase after it, no trailing period. Example (Week 02): "Week 02 of the Turing Award Series — how microprogramming turned hardware problems into software problems."
-- **Subtitle:** one line capturing the core question or payoff. Example: "How to tell if a bad answer is the algorithm's fault or the input's?"
 - **Tags:** a handful of discovery tags. Lead with broad-reach ones (Artificial Intelligence, Computer Science), then the specific topic and History of Computing.
-- **Link:** point readers to the GitHub repo for the code and full writeup.
+- **Images (Week 06 pattern, worked well):** three, positioned so each answers the paragraph before it — cover/split image at the top; the "breadth" diagram right after the credits paragraph; the deepest concept diagram right where the text hits that concept. Give him all three as downloadable attachments with clean filenames (`weekNN-1-cover-<slug>.png` etc.) plus the full post as one paste-ready block with image markers.
+- **Link:** end the body with the GitHub repo link. Merge the chapter PR to main BEFORE he publishes, so the Substack can link the chapter directly.
+- **Heads-up:** substack.com is blocked by this environment's network policy — you cannot fetch his archive. For consistency reviews, ask him to paste titles/subtitles or a screenshot.
 
 ---
 
 ## Step 10 — Commit and push
 
-**Do not push directly to main.** The repo has a hook that blocks direct pushes to main.
+**Do not push directly to main.** The repo has a hook that blocks direct pushes to main. `gh` is not available in the web environment — use the GitHub MCP tools (create_pull_request, merge_pull_request) instead.
 
 ```bash
 git add .
 git commit -m "Week XX: Full Name (YYYY) — [core contribution]"
-git push origin week-XX-firstname-lastname
-gh pr create --title "Week XX: Full Name (YYYY)" --body "..."
-gh pr merge --merge
+git push -u origin <branch>
+# then: mcp github create_pull_request (head=branch, base=main), merge_pull_request (merge)
 ```
+
+Commit and push incrementally throughout the session (a stop-hook complains about uncommitted work). If he pushes from his machine, fetch and rebase before pushing. Only merge to main when he asks.
 
 ---
 
@@ -226,17 +251,19 @@ gh pr merge --merge
 
 - [ ] Folder created with correct naming convention
 - [ ] README.md has all 7 sections in correct order
-- [ ] My Take section is blank (placeholder only)
+- [ ] My Take starts as a placeholder; his final approved text (never AI-drafted) is committed before the merge
 - [ ] concept.py created and runnable
-- [ ] implementation.py runs: default, --test, --verbose
+- [ ] implementation.py runs: default, a source file, --test, --verbose
 - [ ] Test suite has 10+ cases
 - [ ] Before/after example included in code or README
 - [ ] Root README index updated
-- [ ] LinkedIn post drafted (Week 02+ format)
-- [ ] X thread drafted (5 tweets)
-- [ ] Image spec written (no text labels)
-- [ ] Substack post drafted (My Take as body, AI-hook title, subtitle, tags)
-- [ ] Pushed via feature branch and PR, merged to main
+- [ ] He was walked through the chapter in chat (images, quizzes, hands-on code) and says he gets it
+- [ ] Final-notes file kept with his flagged lines
+- [ ] Substack package delivered (title, subtitle in settled format, body = his take, 3 positioned images as attachments, tags)
+- [ ] LinkedIn package delivered (text + 1 image + comment 1 link + comment 2 image)
+- [ ] X thread delivered (5 tweets, no series-philosophy tweet, 3 images placed)
+- [ ] No mention of private goals (interviews, prep) anywhere public
+- [ ] PR merged to main before he publishes Substack, so the chapter link works
 
 ---
 
