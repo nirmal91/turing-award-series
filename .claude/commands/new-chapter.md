@@ -30,7 +30,7 @@ Default assumption for a new chapter: after the research and the files exist, Ni
 
 **When Nirmal pushes back, update THIS file in the same turn.** A correction is a standing rule, not a one-off fix. Don't wait for him to say "update my skills."
 
-**Public vs private.** Never mention interviews, job prep, or any private goal in the public series repo, the blog, or social posts. If he wants study/prep material, keep it in chat, the scratchpad, or a private repo he names. If GitHub access isn't scoped to that private repo, send him the file and say so.
+**Never mention interviewing, anywhere.** Not in the repo, the blog, social posts, commit messages, filenames, or any artifact this series produces. If he wants study/prep material, keep it in chat or the scratchpad, or send it to him as a file for his own private repo — and even then keep the word out of anything that lives in this project.
 
 **Edit his words, never replace them.** When he drafts My Take / post text, your job is: fix facts, fix grammar he'd want fixed, and flag risky claims (e.g. "the first" → "one of the first", misattributed inventions like compilers-to-McCarthy). Do NOT expand, restyle, or "improve" it. Every fresh rewrite has been worse. Watch for AI tells (see Wikipedia "Signs of AI writing"): doubled restatements, three-part parallel structures, section-header-speak like "Another distinct part", em dashes, puffery.
 
@@ -188,21 +188,25 @@ Build it FROM the My Take (edit down, never redraft). Rules:
 - End with: "Link in comments."
 - No headings, no bullet points, no bold. Just paragraphs.
 
-Deliver as a package: final text + image filename (ONE image on the post — multi-image becomes a collage and shrinks everything) + comment 1 text (one-line reason to click + the Substack URL) + comment 2 (optional: a second image with a one-liner). The cover/split image goes on the post; save the busier diagrams for comments, X, and Substack.
+Deliver as a package: final text + image filename (ONE image on the post — multi-image becomes a collage and shrinks everything; extra images go in the comments) + comment 1 text (one-line reason to click + the Substack URL) + comment 2 (a second image with a one-liner). The cover/split image goes on the post; save the busier diagrams for comments, X, and Substack. This is his settled pattern: LinkedIn = 1 image on post + more in comments; X = multiple images across the thread.
 
 ---
 
 ## Step 7 — X thread
 
-5 tweets. No numbers at the top. Each one is a reply to the previous. NO series-philosophy tweet (the old "AI generated vs human written" tweet 2 is retired — he cut it).
+**Priority: consumable.** Each tweet must stand alone for someone scrolling — one clear idea, plain words, an image wherever it helps. Multiple images are fine and encouraged on X (unlike LinkedIn).
 
-- Tweet 1: Week XX + winner + the credentials hook. Attach the cover image.
+5 tweets. No numbers at the top. Each one is a reply to the previous.
+
+**Don't mention the series.** No series-philosophy tweet (the old "AI generated vs human written" tweet 2 is retired), and no re-announcing the series in the thread. At most a bare "Week XX:" marker in tweet 1 — the content carries the thread, not the format.
+
+- Tweet 1: The winner + the credentials hook. Attach the cover image.
 - Tweet 2: The story (before/after, the concrete example — e.g. the Socrates syllogism).
 - Tweet 3: The core idea in plain language. Attach the second image.
 - Tweet 4: Why it still matters today — name specific modern things. Attach the third image.
 - Tweet 5: Personal closer (his "after 20+ years..." style line) + Substack link + github.com/nirmal91/turing-award-series
 
-Keep each under 280 characters. He uses up to 3 images on X, 1 on LinkedIn.
+Keep each under 280 characters.
 
 ---
 
