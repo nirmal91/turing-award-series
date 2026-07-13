@@ -6,7 +6,13 @@
 
 ## My Take
 
-*[Placeholder — written by Nirmal, not AI]*
+Tracing some history of artificial intelligence, I was looking forward to this chapter. John McCarthy coined the term artificial intelligence. He is also directly or indirectly responsible for Lisp, macros, garbage collection, time sharing, and code as data. He is the quintessential computer scientist.
+
+Before McCarthy, computing was mostly calculation, not generation. You fed the machine numbers and it handed numbers back. He was one of the first to get a machine to create new facts out of facts it already had. Socrates is a man. All men are mortal. So Socrates is mortal. A computer before McCarthy could not produce that last line on its own. To do that, a machine has to take old facts apart and build new ones. Which means facts can't sit there as frozen instructions. They have to be data the machine can pick up and rework. McCarthy's twist was to write the code in that same form, so code and data became the same thing.
+
+The thing about Lisp that stuck with me: in a normal language your code gets parsed and compiled into something else before it runs. You never see that middle. In Lisp there is no middle. The list you write is the same list that runs. A small function called eval reads it and runs it on the spot. The code and the thing that runs the code are the same. And because Lisp makes and throws away lists constantly, he had to invent garbage collection to clean up. That is now standard in most languages, like Java, Python, and Go.
+
+After 20+ years of writing code, I finally wrote Lisp for the first time.
 
 ---
 
