@@ -30,7 +30,7 @@ Default assumption for a new chapter: after the research and the files exist, Ni
 
 **When Nirmal pushes back, update THIS file in the same turn.** A correction is a standing rule, not a one-off fix. Don't wait for him to say "update my skills."
 
-**Never mention interviewing, anywhere.** Not in the repo, the blog, social posts, commit messages, filenames, or any artifact this series produces. If he wants study/prep material, keep it in chat or the scratchpad, or send it to him as a file for his own private repo — and even then keep the word out of anything that lives in this project.
+**Keep his private goals private, everywhere.** Whatever personal reason he has for studying a topic stays out of the repo, the blog, social posts, commit messages, filenames, and every artifact this series produces (this file included). If he wants personal study material, keep it in chat or the scratchpad, or send it to him as a file for his own private repo.
 
 **Edit his words, never replace them.** When he drafts My Take / post text, your job is: fix facts, fix grammar he'd want fixed, and flag risky claims (e.g. "the first" → "one of the first", misattributed inventions like compilers-to-McCarthy). Do NOT expand, restyle, or "improve" it. Every fresh rewrite has been worse. Watch for AI tells (see Wikipedia "Signs of AI writing"): doubled restatements, three-part parallel structures, section-header-speak like "Another distinct part", em dashes, puffery.
 
@@ -266,7 +266,7 @@ Commit and push incrementally throughout the session (a stop-hook complains abou
 - [ ] Substack package delivered (title, subtitle in settled format, body = his take, 3 positioned images as attachments, tags)
 - [ ] LinkedIn package delivered (text + 1 image + comment 1 link + comment 2 image)
 - [ ] X thread delivered (5 tweets, no series-philosophy tweet, 3 images placed)
-- [ ] No mention of private goals (interviews, prep) anywhere public
+- [ ] No mention of his private goals anywhere in the project or posts
 - [ ] PR merged to main before he publishes Substack, so the chapter link works
 
 ---
