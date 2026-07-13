@@ -58,6 +58,7 @@ Split image: left = before the contribution, right = after. Dark background, mon
 - 03: Richard Hamming (1968) — error-correcting codes, Hamming(7,4)
 - 04: Marvin Minsky (1969) — artificial intelligence, perceptrons
 - 05: James H. Wilkinson (1970) — backward error analysis, numerical linear algebra
+- 06: John McCarthy (1971) — Lisp, metacircular eval, coined "artificial intelligence", time-sharing
 
 ## Next
-- 06: John McCarthy (1971) — artificial intelligence, Lisp, time-sharing
+- 07: Edsger W. Dijkstra (1972) — structured programming, shortest path, semaphores
