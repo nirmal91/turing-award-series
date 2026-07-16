@@ -1,0 +1,12 @@
+# Scratch file for the attention demo. Run with:
+#     python3 implementation.py practice.txt
+# Each line is a sentence. Edit these, add your own, see where "it" looks.
+# Known words are listed when you start the REPL (animals, crossables,
+# animate properties like tired/hungry, inanimate ones like wide/busy).
+
+the animal didn't cross the street because it was too tired
+the animal didn't cross the street because it was too wide
+the dog would not use the bridge because it was scared
+the dog would not use the bridge because it was narrow
+the horse avoided the road because it was hungry
+the horse avoided the road because it was busy

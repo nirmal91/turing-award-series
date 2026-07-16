@@ -39,6 +39,16 @@ Each week:
 
 ---
 
+## Specials
+
+Papers that changed the field but aren't (yet) Turing Award chapters.
+
+| # | Paper | Year | Core Contribution | Code | Writeup |
+|---|-------|------|-------------------|------|---------|
+| S01 | Attention Is All You Need (Vaswani et al.) | 2017 | The Transformer — deleted recurrence, kept attention: every word attends to every word in one parallel step; the architecture behind BERT, GPT, and every modern LLM | [implementation.py](./special-01-attention-is-all-you-need-2017/implementation.py) | [README](./special-01-attention-is-all-you-need-2017/README.md) |
+
+---
+
 ## Running the code
 
 Each entry and section has its own implementation. Each folder's README has the specific instructions. In general:
