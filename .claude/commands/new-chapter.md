@@ -30,6 +30,8 @@ Default assumption for a new chapter: after the research and the files exist, Ni
 
 **When Nirmal pushes back, update THIS file in the same turn.** A correction is a standing rule, not a one-off fix. Don't wait for him to say "update my skills."
 
+**Teaching is talk, not artifacts (learned from the Transformer special).** The explanation lives in plain chat prose. An image is occasional support for genuinely visual structure, at most one per idea, and never worth a second turn of polish unless he asks. Do not narrate your own work ("I built", "I rendered", "checking the PNG", "committed and pushed") — he does not want a status report, he wants the concept and the story of what happened. Lead with the history and the idea; mention files only when he needs to run something.
+
 **Keep his private goals private, everywhere.** Whatever personal reason he has for studying a topic stays out of the repo, the blog, social posts, commit messages, filenames, and every artifact this series produces (this file included). If he wants personal study material, keep it in chat or the scratchpad, or send it to him as a file for his own private repo.
 
 **Edit his words, never replace them.** When he drafts My Take / post text, your job is: fix facts, fix grammar he'd want fixed, and flag risky claims (e.g. "the first" → "one of the first", misattributed inventions like compilers-to-McCarthy). Do NOT expand, restyle, or "improve" it. Every fresh rewrite has been worse. Watch for AI tells (see Wikipedia "Signs of AI writing"): doubled restatements, three-part parallel structures, section-header-speak like "Another distinct part", em dashes, puffery.
