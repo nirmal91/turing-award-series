@@ -1,0 +1,24 @@
+# scratch.graph — your playground for Dijkstra's algorithm.
+# Run it:  python3 implementation.py scratch.graph
+# Or trace every step:  python3 implementation.py --verbose scratch.graph
+#
+# Format:
+#   edge A B 7     undirected road A<->B of length 7
+#   dedge A B 7    one-way road A->B of length 7
+#   start: A       default start node
+#   from A         print shortest distance from A to everything
+#   path A E       print the shortest path from A to E
+
+start: A
+edge A B 7
+edge A C 9
+edge A F 14
+edge B C 10
+edge B D 15
+edge C D 11
+edge C F 2
+edge D E 6
+edge E F 9
+
+path A E
+from A

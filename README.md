@@ -36,6 +36,7 @@ Each week:
 | 04 | Marvin Minsky | 1969 | Proved that single-layer perceptrons cannot learn XOR — forcing the field toward multi-layer networks and eventually deep learning | [implementation.py](./04-marvin-minsky-1969/implementation.py) | [README](./04-marvin-minsky-1969/README.md) |
 | 05 | James H. Wilkinson | 1970 | Backward error analysis — judge an algorithm by how small a change to the inputs would make its answer exact, separating a stable method from an ill-conditioned problem | [implementation.py](./05-james-wilkinson-1970/implementation.py) | [README](./05-james-wilkinson-1970/README.md) |
 | 06 | John McCarthy | 1971 | Invented Lisp and the metacircular `eval` — code and data share one shape, so an interpreter fits in one page; also coined "artificial intelligence" and pushed time-sharing | [implementation.py](./06-john-mccarthy-1971/implementation.py) | [README](./06-john-mccarthy-1971/README.md) |
+| 07 | Edsger W. Dijkstra | 1972 | Shortest path by settling the nearest node first; also structured programming (goto considered harmful), semaphores, and correctness by construction | [implementation.py](./07-edsger-dijkstra-1972/implementation.py) | [README](./07-edsger-dijkstra-1972/README.md) |
 
 ---
 
