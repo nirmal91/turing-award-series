@@ -1,0 +1,13 @@
+# The classic six-city map. Edges are undirected (roads go both ways).
+# Format: NODE NODE WEIGHT. Lines starting with # are comments.
+source A
+
+A B 7
+A C 9
+A F 14
+B C 10
+B D 15
+C D 11
+C F 2
+D E 6
+E F 9

@@ -1,0 +1,14 @@
+# Your scratch graph. Edit this and run:  python3 implementation.py scratch.graph
+# Format: NODE NODE WEIGHT. One edge per line. # is a comment.
+# Uncomment 'directed' to make edges one-way. Set 'source' to your start node.
+
+# directed
+source A
+
+A B 4
+A C 2
+B C 5
+B D 10
+C E 3
+E D 4
+D F 11
