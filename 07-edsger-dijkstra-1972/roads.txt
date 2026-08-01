@@ -1,0 +1,12 @@
+# A small road network (the README worked example).
+# Each line "u v w" is a two-way road between u and v of length w.
+edge A B 4
+edge A C 2
+edge B C 1
+edge B D 5
+edge C D 8
+
+# Now ask some questions:
+show
+path A D
+dist A
