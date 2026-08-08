@@ -1,0 +1,16 @@
+# The demo road map from the README worked example.
+# Undirected edges: edge CITY CITY DISTANCE
+edge A B 7
+edge A C 9
+edge A F 14
+edge B C 10
+edge B D 15
+edge C D 11
+edge C F 2
+edge D E 6
+edge E F 9
+
+# Now ask questions of it.
+show
+dist A
+path A E

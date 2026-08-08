@@ -1,0 +1,17 @@
+# Your scratch pad. Build any graph and ask for shortest paths.
+# Run it with:  python3 implementation.py scratch.graph
+#
+# edge U V W    add an undirected road U--V of length W (W >= 0)
+# path SRC DST  shortest route and its length
+# dist SRC      shortest length from SRC to everywhere
+# show          print the graph
+
+edge home work 5
+edge home gym 2
+edge gym work 2
+edge work cafe 4
+edge gym cafe 7
+
+show
+path home cafe
+dist home
