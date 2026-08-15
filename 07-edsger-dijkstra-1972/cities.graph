@@ -1,0 +1,22 @@
+# The classic six-node weighted graph from the README's worked example.
+# Undirected roads with non-negative lengths. Load and run with:
+#     python3 implementation.py cities.graph
+
+edge A B 7
+edge A C 9
+edge A F 14
+edge B C 10
+edge B D 15
+edge C D 11
+edge C F 2
+edge D E 6
+edge E F 9
+
+show
+
+# Shortest route from A to E is A -> C -> F -> E, distance 20,
+# even though the direct-looking A -> F edge costs 14 on its own.
+path A E
+
+# Every shortest distance out of A.
+dist A
