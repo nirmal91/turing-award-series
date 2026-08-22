@@ -1,0 +1,10 @@
+# A small road map. Edit these edges, then run:
+#   python3 implementation.py practice.txt
+#   python3 implementation.py practice.txt home work
+# Each line: NODE NODE LENGTH  (undirected by default)
+home  cafe   4
+home  park   3
+cafe  work   5
+park  cafe   2
+park  gym    6
+gym   work   3
