@@ -1,0 +1,21 @@
+# practice.graph — scratch file for building a graph by hand.
+# Anything after a # is a comment (ignored).
+# Run it with:   python3 implementation.py practice.graph
+#            or: python3 implementation.py --verbose practice.graph
+#
+# Syntax:
+#   A B 4          directed edge A -> B, weight 4
+#   A B 4 both     edge A <-> B in both directions, weight 4
+#   START X        which node to start from (optional; defaults to the first node seen)
+
+# 1. a couple of edges to get you going
+A B 4
+A C 2
+
+# 2. add more edges below. try making B and D connect both ways:
+# B D 5 both
+
+# 3. try a detour: give C a cheap route to somewhere D also reaches directly,
+#    and watch --verbose show the algorithm prefer the detour once it's cheaper
+
+START A
