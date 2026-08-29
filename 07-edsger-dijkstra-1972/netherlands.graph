@@ -1,0 +1,15 @@
+# Six Dutch cities. Distances are driving km (rounded).
+# Same shape as Dijkstra's actual 1959 demo: Rotterdam to Groningen,
+# just shrunk from 64 cities down to six.
+
+Rotterdam Utrecht 60
+Rotterdam Amsterdam 85
+Utrecht Amsterdam 40
+Utrecht Amersfoort 25
+Amsterdam Amersfoort 45
+Amersfoort Zwolle 50
+Amsterdam Zwolle 110
+Zwolle Groningen 100
+
+START Rotterdam
+END Groningen

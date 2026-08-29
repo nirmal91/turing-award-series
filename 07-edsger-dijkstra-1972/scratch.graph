@@ -1,0 +1,15 @@
+# Scratch file. Add your own cities and roads, then run:
+#   python3 implementation.py scratch.graph
+#
+# Format:
+#   A B 10        undirected road A-B, weight 10
+#   A -> B 10     one-way road, A to B only, weight 10
+#   START A       which city to report distances from
+#   END B         (optional) also print the path A -> B
+
+Home Work 20
+Home Gym 10
+Gym Work 8
+
+START Home
+END Work
