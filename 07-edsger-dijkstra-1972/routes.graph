@@ -1,0 +1,15 @@
+# A tiny road map. Edit the numbers, add edges, then run:
+#   python3 implementation.py routes.graph
+#
+# Format:  SOURCE TARGET WEIGHT [both]
+#   "both" makes the road two-way. Leave it off for a one-way street.
+
+Home  Cafe    4  both
+Home  Park    2  both
+Park  Cafe    1  both
+Cafe  Office  5  both
+Park  Office  8  both
+
+# Queries run top to bottom:
+from Home
+path Home Office
