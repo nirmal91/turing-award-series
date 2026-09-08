@@ -1,0 +1,5 @@
+add A B 4
+add A C 1
+add C B 2
+add B D 1
+run A

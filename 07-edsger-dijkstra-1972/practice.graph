@@ -1,0 +1,29 @@
+# practice.graph — scratch file for building a graph and running Dijkstra.
+# Anything after a '#' is a comment (ignored).
+# Run it with:   python3 implementation.py practice.graph
+#
+# Rules:
+#   add A B 4   -- directed edge A -> B with weight 4
+#   show        -- print every edge
+#   run A       -- shortest distances from A to everything
+#   path A B    -- shortest route from A to B
+#   brute A B   -- compare against brute-force enumeration (the "before")
+
+# 1. Build a small diamond-shaped graph.
+add A B 4
+add A C 1
+add C B 2
+add B D 1
+add C D 5
+
+# 2. Look at what you built.
+show
+
+# 3. Shortest distances from A to everything.
+run A
+
+# 4. The actual route, not just the distance.
+path A D
+
+# 5. Prove Dijkstra agrees with brute-force enumeration here.
+brute A D
