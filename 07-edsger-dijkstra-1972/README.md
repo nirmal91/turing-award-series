@@ -167,11 +167,13 @@ By the time every house has a final number, every single one is the true shortes
 
 ## ELI10
 
-In 1956, Edsger Dijkstra was a 26-year-old programmer in the Netherlands, working on a new computer called the ARMAC. He wanted a demo problem that would be easy for a non-programmer to understand and impressive for the machine to solve: the shortest route between two Dutch cities, Rotterdam and Groningen, on a simplified map of 64 cities.
+Edsger Dijkstra was born in Rotterdam in 1930 and studied math and physics at the University of Leiden. In March 1952 he started work as a programmer at the Mathematisch Centrum in Amsterdam-Oost, effectively becoming the Netherlands' first professional programmer — a job so new that when he married a fellow Mathematisch Centrum programmer, Ria Debets, in 1957, Dutch marriage records had no category for "programmer" and listed his profession as "theoretical physicist" instead. He earned his PhD from the University of Amsterdam in 1959.
+
+In 1956, working on a new computer called the ARMAC, he wanted a demo problem that would be easy for a non-programmer to understand and impressive for the machine to solve: the shortest route between two Dutch cities, Rotterdam and Groningen, on a simplified map of 64 cities.
 
 The story goes that he worked out the algorithm without a computer, without even pen and paper, in about twenty minutes, while sitting on a café terrace in Amsterdam with his fiancée. The trick was to stop thinking about routes and start thinking about running totals. Instead of asking "what is the shortest path?", ask "what is the smallest distance I can currently prove to each city, and can I lock one of those in?" Every time you lock in the cheapest unproven distance, it turns out to be correct forever, and you use it to improve your guesses about its neighbors. Repeat until every city is locked in. He published the method in 1959, in a paper just three pages long.
 
-That's the algorithm most people mean when they say "Dijkstra." But the 1972 Turing Award citation is really about something bigger than one algorithm: it's about a style. In 1968 Dijkstra wrote a short, sharp letter to a computing magazine called "Go To Statement Considered Harmful," arguing that jumping around a program with `goto` statements — which is how almost everyone wrote code at the time — made programs nearly impossible to reason about. He pushed instead for what he called structured programming: build programs out of sequence, choice, and repetition, nothing else, so you can understand what a program does by reading it top to bottom instead of tracing jumps all over the page. Around the same time, working on early multitasking operating systems, he invented the semaphore, a simple counter that lets multiple running programs take turns using a shared resource without stepping on each other. Three different problems, one habit underneath all of them: don't just make the code work, make it possible to prove that it works.
+That's the algorithm most people mean when they say "Dijkstra." But the 1972 Turing Award citation is really about something bigger than one algorithm: it's about a style. Dijkstra left Amsterdam for the Eindhoven University of Technology in 1962, and it was there, over the following decade, that the rest of the citation's work happened. In 1968 he wrote a short, sharp letter to a computing magazine called "Go To Statement Considered Harmful," arguing that jumping around a program with `goto` statements — which is how almost everyone wrote code at the time — made programs nearly impossible to reason about. He pushed instead for what he called structured programming: build programs out of sequence, choice, and repetition, nothing else, so you can understand what a program does by reading it top to bottom instead of tracing jumps all over the page. Around the same time, working on early multitasking operating systems, he invented the semaphore, a simple counter that lets multiple running programs take turns using a shared resource without stepping on each other. Three different problems, one habit underneath all of them: don't just make the code work, make it possible to prove that it works.
 
 Those two ideas, structured programming and semaphores, shaped how essentially every programming language and operating system since has been built. Every `if`, `while`, and function call you write without a `goto` anywhere in sight is a small, permanent win for Dijkstra's argument. Every time an operating system lets two programs share a printer, a database row, or a slot in memory without corrupting each other, there's a semaphore or one of its descendants doing the coordinating underneath.
 
@@ -208,6 +210,8 @@ The correctness argument is short and depends critically on non-negative weights
 **The edge case that defines the boundary.** The Full Worked Example above shows a negative edge breaking the finalize-and-never-revisit guarantee: a node gets finalized on an artificially cheap label, and a genuinely shorter route through a not-yet-finalized node is discovered too late to matter. `implementation.py --test` pins this down as an assertion, not just a warning in the README. This is precisely the gap that Bellman-Ford (1958, independently) fills: it tolerates negative weights by relaxing every edge `V-1` times instead of finalizing nodes one at a time, trading Dijkstra's speed for that tolerance.
 
 **What descended from it.** Dijkstra's algorithm (with a heap) is the shortest-path core inside routing protocols (OSPF, IS-IS use link-state routing built on it), road navigation and mapping software, and network packet routing. A* (Hart, Nilsson, Raphael, 1968) is Dijkstra's algorithm plus a heuristic that steers the search toward the target instead of expanding outward uniformly — still finalize-and-never-revisit underneath.
+
+**Still an open research problem, in 2025.** The heap-based version of this algorithm has run in `O(m + n log n)` time since 1984. That bound stood for 41 years, widely assumed to be optimal, until a team from Tsinghua University and Stanford (Ran Duan, Jiayi Mao, Xiao Mao, Xinkai Shu, Longhui Yin) published a deterministic `O(m log^(2/3) n)` algorithm — the first to beat it — and won Best Paper at STOC 2025 for it. A 1959 café-terrace result is still generating new theory results in the same year this chapter was written.
 
 ### 2. Structured programming: `goto` and the shape of provably correct control flow
 
@@ -253,13 +257,33 @@ def increment():
     V(mutex)                  # release it for the next process
 ```
 
-Semaphores with an initial value greater than `1` generalize this to counting: `n` interchangeable copies of a resource (say, `n` open connections in a pool), where `P` blocks once all `n` are checked out and `V` releases one back. Dijkstra also posed the **dining philosophers problem** in this same body of work as a teaching example for the deadlock and starvation failure modes concurrent code can fall into if synchronization primitives are used carelessly.
+Semaphores with an initial value greater than `1` generalize this to counting: `n` interchangeable copies of a resource (say, `n` open connections in a pool), where `P` blocks once all `n` are checked out and `V` releases one back. Dijkstra also posed the **dining philosophers problem** in this same body of work as a teaching example for the deadlock and starvation failure modes concurrent code can fall into if synchronization primitives are used carelessly — he coined the phrase "deadly embrace" for deadlock, and later gave one concrete way to avoid it entirely, the **Banker's algorithm**: only grant a resource request if the system can still guarantee every process a path to finishing, the same way a bank only extends a loan it can still cover.
 
 **What descended from it.** Semaphores are the direct ancestor of essentially every synchronization primitive in use today: mutexes, condition variables, monitors (Hoare's later refinement), and the lock objects in every mainstream language's standard library (`threading.Lock` in Python, `sync.Mutex` in Go, `synchronized` in Java). Database transaction locking and the reader-writer locks inside operating system kernels trace back to the same P/V discipline.
 
-### 4. The thread connecting all three
+### 4. Program correctness: proving instead of testing
 
-Shortest paths, structured programming, and semaphores look like three unrelated contributions, and the ACM's citation is careful to name that breadth rather than credit one paper. But they share a habit: in each case, Dijkstra found a small, closed set of primitives — labels finalized once each; sequence, selection, iteration; P and V — from which a correctness argument could be built and composed, instead of debugged after the fact. "Programs should be composed correctly, not just debugged into correctness," as the citation puts it. That habit is why his name survives as an adjective (a "Dijkstra-style" proof) as much as it survives as an algorithm.
+**Before.** The dominant way to gain confidence in a program was, and largely still is, to run it and see what happens. Dijkstra's objection, from "Notes on Structured Programming" (circa 1969): *"Program testing can be used to show the presence of bugs, but never to show their absence."* A test suite checks the finitely many cases you thought to run. It cannot speak to the infinitely many you didn't.
+
+**What was new.** In his 1975 paper "Guarded Commands, Nondeterminacy and Formal Derivation of Programs," Dijkstra treated a program as a mathematical object you reason about, not an artifact you exercise. The tool is the **weakest precondition calculus**: for a statement `S` and a desired postcondition `R`, `wp(S, R)` is the loosest condition on the state before `S` that still guarantees `R` after. For a simple assignment, it's computed by pure substitution:
+
+```
+wp(x := E, R)  =  R with every occurrence of x replaced by E
+
+example:  wp(x := x + 1,  x > 5)  =  (x + 1) > 5  =  x > 4
+```
+
+Chaining this backward through a sequence of statements turns a whole program into an annotated proof — a condition before each line and after it, each one a handoff contract with its neighbor — with no example input run at any point. Composed correctly, the guarantee covers every possible input, not just the ones tried. This is also where the payoff of restricting control flow (section 2) becomes concrete: sequence, selection, and iteration each have their own `wp` rule, so a proof about a whole program builds the same way the program itself was built, one block at a time. A loop is the one case that needs an extra idea, a **loop invariant** — a condition true before the loop and true again after every iteration — and that idea isn't just proof-theory décor: the correctness argument for `shortest_paths()` in this chapter's own `implementation.py` ("once a label is finalized, it never changes") is a loop invariant on its `while tentative:` loop, stated in English instead of a formal proof.
+
+**What descended from it.** This work underlies Hoare logic and every formal-verification tool used on safety-critical or security-critical software today (seL4's verified microkernel, the TLA+ specifications used at Amazon, AWS's use of formal methods on S3 and other core services). It's a minority practice — most software is still shipped on tests — but where correctness is non-negotiable, this is the lineage it comes from.
+
+### 5. Everything else he's credited with
+
+Beyond these four, in rough chronological order: the **shunting-yard algorithm** (1961, converting infix expressions like `3 + 4 * 5` into postfix for evaluation — still how calculators and compilers parse arithmetic), **THE multiprogramming system** (1968, one of the first operating systems built as strict, independently-verifiable layers, each only aware of the layer below it), and **self-stabilization** (1974, a distributed system that provably recovers to a correct state from any starting configuration, without external intervention — largely ignored on publication, now foundational to fault-tolerant distributed systems). The pattern repeats: small closed primitives, a proof instead of a hope.
+
+### 6. The thread connecting all of it
+
+Shortest paths, structured programming, semaphores, and formal correctness look like unrelated contributions, and the ACM's citation is careful to name that breadth rather than credit one paper. But they share a habit: in each case, Dijkstra found a small, closed set of primitives — labels finalized once each; sequence, selection, iteration; P and V; substitution rules for `wp` — from which a correctness argument could be built and composed, instead of debugged after the fact. "Programs should be composed correctly, not just debugged into correctness," as the citation puts it. That habit is why his name survives as an adjective (a "Dijkstra-style" proof) as much as it survives as an algorithm.
 
 ---
 
@@ -272,6 +296,8 @@ Shortest paths, structured programming, and semaphores look like three unrelated
 | [Cooperating Sequential Processes](https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html) *(EWD123, technical report)* | Technological University Eindhoven | 1965 |
 | [Notes on Structured Programming](https://research.tue.nl/en/publications/notes-on-structured-programming) *(in* Structured Programming*, with Dahl and Hoare)* | Academic Press | 1972 |
 | [The Humble Programmer](https://doi.org/10.1145/1283920.1283927) *(Turing Award lecture)* | Communications of the ACM | 1972 |
+| [Guarded Commands, Nondeterminacy and Formal Derivation of Programs](https://doi.org/10.1145/360933.360975) *(weakest precondition calculus)* | Communications of the ACM | 1975 |
+| [Breaking the Sorting Barrier for Directed Single-Source Shortest Paths](https://doi.org/10.1145/3717823.3718179) *(Duan, Mao, Mao, Shu, Yin — first algorithm to beat Dijkstra's 1984 time bound)* | STOC | 2025 |
 
 ---
 
