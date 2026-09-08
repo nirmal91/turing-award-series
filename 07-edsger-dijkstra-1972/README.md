@@ -177,6 +177,8 @@ That's the algorithm most people mean when they say "Dijkstra." But the 1972 Tur
 
 Those two ideas, structured programming and semaphores, shaped how essentially every programming language and operating system since has been built. Every `if`, `while`, and function call you write without a `goto` anywhere in sight is a small, permanent win for Dijkstra's argument. Every time an operating system lets two programs share a printer, a database row, or a slot in memory without corrupting each other, there's a semaphore or one of its descendants doing the coordinating underneath.
 
+People who worked with him talked about him less as someone who wrote good code and more as someone who insisted computing become a real discipline. C.A.R. Hoare, in his eulogy, called it "the greatest contribution that any one person could make in any one lifetime." Dijkstra himself liked to say "computer science is no more about computers than astronomy is about telescopes," and waved off the debate over whether machines could think as "about as relevant as the question of whether submarines can swim." He also never used a word processor: he wrote more than 1,300 numbered technical reports by hand with a fountain pen, then photocopied and mailed them to a circulation list of colleagues, because typing invited fixing sentences instead of fixing thoughts.
+
 ---
 
 ## CS Graduate Level — Shortest Paths, No Jumps, and Taking Turns
