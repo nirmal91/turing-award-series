@@ -298,6 +298,7 @@ Shortest paths, structured programming, semaphores, and formal correctness look 
 | [Cooperating Sequential Processes](https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html) *(EWD123, technical report)* | Technological University Eindhoven | 1965 |
 | [Notes on Structured Programming](https://research.tue.nl/en/publications/notes-on-structured-programming) *(in* Structured Programming*, with Dahl and Hoare)* | Academic Press | 1972 |
 | [The Humble Programmer](https://doi.org/10.1145/1283920.1283927) *(Turing Award lecture)* | Communications of the ACM | 1972 |
+| [How Do We Tell Truths That Might Hurt?](https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD498.html) *(EWD498)* | Technological University Eindhoven | 1975 |
 | [Guarded Commands, Nondeterminacy and Formal Derivation of Programs](https://doi.org/10.1145/360933.360975) *(weakest precondition calculus)* | Communications of the ACM | 1975 |
 | [Breaking the Sorting Barrier for Directed Single-Source Shortest Paths](https://doi.org/10.1145/3717823.3718179) *(Duan, Mao, Mao, Shu, Yin — first algorithm to beat Dijkstra's 1984 time bound)* | STOC | 2025 |
 
