@@ -6,7 +6,17 @@
 
 ## My Take
 
-*[Placeholder — written by Nirmal, not AI]*
+I am sure every CS student has heard of Dijkstra and his algorithm of finding the shortest path. What is relatively less well known is his invention of semaphores, his push toward proving code correct, not just testing and debugging it. This chapter took me a while because there's so much Dijkstra has contributed to CS and he has also done it in an idiosyncratic way of doing things. I have read this quote so many times and never knew it was attributed to Dijkstra: "Program testing can be used to show the presence of bugs, but never to show their absence."
+
+A*, which extends Dijkstra's algorithm with a heuristic, is used everywhere today: chip design, robotics paths, pathfinding in games like Age of Empires, your Google Maps, and the same "search the promising direction first" idea now shows up in how AlphaGo picks its next move and how modern AI search systems find answers fast.
+
+Few more interesting tidbits:
+
+* His most famous work, the shortest path algorithm, was done with no paper, no pencil, in 20 mins on a sunny European afternoon on an outdoor terrace. These European outdoor terraces are quite inspiring (remember Vincent Van Gogh), another Dutch legend
+* In his wedding certificate in Amsterdam, he tried writing Computer Science as his profession, but wasn't allowed to and had to choose theoretical physicist.
+* He never used a digital writer, right up until he died in 2002. He always felt that writing is how you understand things — as he put it, "the tools we use have a profound (and devious!) influence on our thinking habits, and, therefore, on our thinking abilities." His colleagues found it stubborn, but I fully agree with this sentiment. This is so important, specially in the age of AI. Good writing is how you think, how you understand; please don't outsource this blindly to AI slop. Your thinking is what makes you human.
+
+**Bonus reading:** [How do we tell truths that might hurt?](https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD498.html) — an essay he wrote in 1975, very Dutch way of communicating: direct and to the point. My favorite quote: "Sometimes we discover unpleasant truths. Whenever we do so, we are in difficulties: suppressing them is scientifically dishonest, so we must tell them, but telling them, however, will fire back on us."
 
 ---
 
