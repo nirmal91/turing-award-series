@@ -1,0 +1,38 @@
+# A small navigational database: two departments, one project, three
+# employees. One employee (Alice) is a member of two independent sets at
+# once -- her department AND her project -- the "network" in network
+# model. Run with: python3 implementation.py company.ids
+
+record DEPARTMENT name
+record PROJECT name
+record EMPLOYEE name
+
+set DEPT-EMP owner DEPARTMENT member EMPLOYEE
+set PROJ-EMP owner PROJECT member EMPLOYEE
+
+store DEPARTMENT name=Sales
+store DEPARTMENT name=Engineering
+store PROJECT name=Launch
+store EMPLOYEE name=Alice
+store EMPLOYEE name=Bob
+store EMPLOYEE name=Carol
+
+connect DEPT-EMP DEPARTMENT-1 EMPLOYEE-1
+connect DEPT-EMP DEPARTMENT-1 EMPLOYEE-2
+connect DEPT-EMP DEPARTMENT-2 EMPLOYEE-3
+connect PROJ-EMP PROJECT-1 EMPLOYEE-1
+
+show
+
+# Walk every employee in Sales (DEPARTMENT-1) using the ring -- one
+# pointer-follow per step, no scan.
+find first DEPT-EMP DEPARTMENT-1
+find next DEPT-EMP
+find next DEPT-EMP
+
+# From Alice, jump straight to her project owner -- also one pointer.
+find first DEPT-EMP DEPARTMENT-1
+find owner PROJ-EMP
+
+# The "before": find Bob by scanning every EMPLOYEE record's name field.
+scan EMPLOYEE name=Bob
