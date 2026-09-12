@@ -1,0 +1,12 @@
+# Your scratch database. Edit freely, then run:
+#   python3 implementation.py scratch.ids
+rectype DEPT name
+rectype EMP name
+set WORKS_IN DEPT EMP
+store DEPT name=Engineering    # #1
+store EMP name=Ada            # #2
+store EMP name=Grace          # #3
+connect WORKS_IN 1 2
+connect WORKS_IN 1 3
+members WORKS_IN 1
+owner WORKS_IN 2

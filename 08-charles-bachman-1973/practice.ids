@@ -1,0 +1,33 @@
+# A network-model database, built one command at a time.
+# Many-to-many: students and courses, joined by ENROLL link records.
+# Run:  python3 implementation.py practice.ids
+
+# --- schema (the Bachman diagram) ---
+rectype STUDENT name
+rectype COURSE name
+rectype ENROLL
+set STU_ENROLL STUDENT ENROLL     # a student owns her enrollments
+set CRS_ENROLL COURSE ENROLL      # a course owns its enrollments
+
+# --- records ---
+store STUDENT name=Alice          # #1
+store STUDENT name=Bob            # #2
+store COURSE name=CS101           # #3
+store COURSE name=MATH200         # #4
+store ENROLL                      # #5  Alice in CS101
+store ENROLL                      # #6  Alice in MATH200
+store ENROLL                      # #7  Bob in CS101
+
+# --- connect the link records into BOTH sets at once ---
+connect STU_ENROLL 1 5
+connect STU_ENROLL 1 6
+connect STU_ENROLL 2 7
+connect CRS_ENROLL 3 5
+connect CRS_ENROLL 3 7
+connect CRS_ENROLL 4 6
+
+# --- navigate ---
+show
+members STU_ENROLL 1              # Alice's enrollment records
+members CRS_ENROLL 3             # CS101's enrollment records
+owner CRS_ENROLL 5              # which course enrollment #5 belongs to (CS101)
