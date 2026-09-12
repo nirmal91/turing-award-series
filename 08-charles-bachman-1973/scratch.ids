@@ -1,0 +1,10 @@
+# Your scratch file. Run it with:
+#   python3 implementation.py scratch.ids --verbose
+#
+# Try: add a third order for Ada, then FIND NEXT until you hit "end of
+# set". Try: store an ORDER before storing any CUSTOMER and see what
+# error you get, and why. Try: switch CUSTOMER-ORDERS to LIFO in
+# build_demo_database() and see which order FIND FIRST returns.
+
+store CUSTOMER name=Ada id=1
+store ORDER item=Punched-cards customer=1

@@ -1,0 +1,20 @@
+# A CUSTOMER owns a ring of ORDERs. STORE wires a new order into the
+# current customer's ring automatically -- that's the AUTOMATIC set
+# membership CODASYL's DDL would declare for this set type.
+store CUSTOMER name=Ada id=1
+store ORDER item=Punched-cards customer=1
+store ORDER item=Vacuum-tube customer=1
+
+store CUSTOMER name=Grace id=2
+store ORDER item=Teletype customer=2
+
+# Navigate Ada's ring: find her, then walk her orders one pointer at a time.
+find any CUSTOMER id=1
+find first CUSTOMER-ORDERS
+get
+find next CUSTOMER-ORDERS
+get
+
+# The pre-1963 alternative: no ring, so re-derive the relationship by
+# reading every order and checking its customer field.
+scan ORDER customer 1
