@@ -52,6 +52,9 @@ Both stored at `/home/user/.claude/commands/`
 ## Image spec (per chapter)
 Split image: left = before the contribution, right = after. Dark background, monospace font. No headshots, no stock photos.
 
+## Distribution todo
+- Also cross-post each chapter to https://onetriangle.ai/blog (in addition to Substack, LinkedIn, X). Not yet wired into the `/new-chapter` workflow — figure out the posting mechanism (manual, API, or CMS) and add it as a step when picked up.
+
 ## Chapters completed
 - 01: Alan Jay Perlis (1966) — first compiler (IT), ALGOL 60
 - 02: Maurice Wilkes (1967) — microprogramming, control store as ROM
