@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="'DejaVu Sans Mono','Courier New',monospace">
+  <defs>
+    <marker id="green" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="greenback" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#2ea043"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0d1117"/>
+
+  <!-- ================= LEFT: flat file, scan everything (old/red) ================= -->
+  <!-- 9 identical rows of a flat file; a red bar scans every single one. -->
+  <!-- duplicated cells (same red block repeated down the middle column) hint at redundancy -->
+
+  <!-- red scan bar down the whole left edge of the table -->
+  <rect x="150" y="176" width="16" height="708" rx="4" fill="#f85149" opacity="0.9"/>
+
+  <!-- rows -->
+  <!-- row template: x 210..770, height 64, gap 14 -->
+  <!-- generated explicitly for readability -->
+  <!-- row 1 -->
+  <g>
+    <rect x="210" y="180" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="180" x2="396" y2="244" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="180" x2="583" y2="244" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="192" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,204 200,212 176,220" fill="#f85149"/>
+  </g>
+  <!-- row 2 -->
+  <g>
+    <rect x="210" y="258" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="258" x2="396" y2="322" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="258" x2="583" y2="322" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="270" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,282 200,290 176,298" fill="#f85149"/>
+  </g>
+  <!-- row 3 -->
+  <g>
+    <rect x="210" y="336" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="336" x2="396" y2="400" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="336" x2="583" y2="400" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="348" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,360 200,368 176,376" fill="#f85149"/>
+  </g>
+  <!-- row 4 -->
+  <g>
+    <rect x="210" y="414" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="414" x2="396" y2="478" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="414" x2="583" y2="478" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="426" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,438 200,446 176,454" fill="#f85149"/>
+  </g>
+  <!-- row 5 -->
+  <g>
+    <rect x="210" y="492" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="492" x2="396" y2="556" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="492" x2="583" y2="556" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="504" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,516 200,524 176,532" fill="#f85149"/>
+  </g>
+  <!-- row 6 -->
+  <g>
+    <rect x="210" y="570" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="570" x2="396" y2="634" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="570" x2="583" y2="634" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="582" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,594 200,602 176,610" fill="#f85149"/>
+  </g>
+  <!-- row 7 -->
+  <g>
+    <rect x="210" y="648" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="648" x2="396" y2="712" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="648" x2="583" y2="712" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="660" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,672 200,680 176,688" fill="#f85149"/>
+  </g>
+  <!-- row 8 -->
+  <g>
+    <rect x="210" y="726" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="726" x2="396" y2="790" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="726" x2="583" y2="790" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="738" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,750 200,758 176,766" fill="#f85149"/>
+  </g>
+  <!-- row 9 -->
+  <g>
+    <rect x="210" y="804" width="560" height="64" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <line x1="396" y1="804" x2="396" y2="868" stroke="#30363d" stroke-width="2"/>
+    <line x1="583" y1="804" x2="583" y2="868" stroke="#30363d" stroke-width="2"/>
+    <rect x="404" y="816" width="170" height="40" rx="4" fill="#f85149" opacity="0.55"/>
+    <polygon points="176,828 200,836 176,844" fill="#f85149"/>
+  </g>
+
+  <!-- ================= divider ================= -->
+  <line x1="960" y1="140" x2="960" y2="920" stroke="#30363d" stroke-width="2" stroke-dasharray="6 10"/>
+
+  <!-- ================= RIGHT: network, navigate only what you need (new/green) ============ -->
+  <!-- one owner node, a chain of two members, an owner back-pointer; a second small chain
+       to make it read as a graph, not a list. Only these few nodes are "lit". -->
+
+  <!-- primary chain: owner -> member -> member -->
+  <!-- owner -->
+  <rect x="1300" y="200" width="220" height="86" rx="10" fill="#0d2a17" stroke="#3fb950" stroke-width="3"/>
+  <!-- member 1 -->
+  <rect x="1330" y="420" width="220" height="86" rx="10" fill="#0d2a17" stroke="#3fb950" stroke-width="3"/>
+  <!-- member 2 -->
+  <rect x="1360" y="640" width="220" height="86" rx="10" fill="#0d2a17" stroke="#3fb950" stroke-width="3"/>
+
+  <!-- forward (member chain) arrows, thick green -->
+  <path d="M1410,286 L1440,420" stroke="#3fb950" stroke-width="5" fill="none" marker-end="url(#green)"/>
+  <path d="M1440,506 L1470,640" stroke="#3fb950" stroke-width="5" fill="none" marker-end="url(#green)"/>
+
+  <!-- owner back-pointers (dimmer, curved) -->
+  <path d="M1330,455 C1230,420 1230,300 1300,258" stroke="#2ea043" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#greenback)"/>
+  <path d="M1360,675 C1210,640 1200,320 1300,244" stroke="#2ea043" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#greenback)"/>
+
+  <!-- a second owner + single member off to the right, to make it a graph not a stack -->
+  <rect x="1640" y="300" width="180" height="72" rx="10" fill="#12261a" stroke="#238636" stroke-width="2.5"/>
+  <rect x="1660" y="480" width="180" height="72" rx="10" fill="#12261a" stroke="#238636" stroke-width="2.5"/>
+  <path d="M1730,372 L1750,480" stroke="#238636" stroke-width="4" fill="none" marker-end="url(#green)"/>
+</svg>

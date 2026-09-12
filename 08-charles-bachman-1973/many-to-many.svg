@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1075" viewBox="0 0 1920 1075" font-family="'DejaVu Sans Mono','Courier New',monospace">
+  <defs>
+    <marker id="g" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="o" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+  <rect width="1920" height="1080" fill="#0d1117"/>
+
+  <text x="90" y="95" fill="#c9d1d9" font-size="40" font-weight="bold">Many-to-many: one link record, two sets</text>
+  <text x="90" y="143" fill="#8b949e" font-size="27">a student takes many courses; a course has many students. A flat file can't do this without copying data.</text>
+
+  <!-- left column: STUDENTS -->
+  <rect x="110" y="250" width="330" height="100" rx="12" fill="#0d2a17" stroke="#3fb950" stroke-width="3"/>
+  <text x="275" y="292" fill="#8b949e" font-size="22" text-anchor="middle">STUDENT</text>
+  <text x="275" y="328" fill="#e6edf3" font-size="32" text-anchor="middle" font-weight="bold">#1 Alice</text>
+
+  <rect x="110" y="640" width="330" height="100" rx="12" fill="#0d2a17" stroke="#3fb950" stroke-width="3"/>
+  <text x="275" y="682" fill="#8b949e" font-size="22" text-anchor="middle">STUDENT</text>
+  <text x="275" y="718" fill="#e6edf3" font-size="32" text-anchor="middle" font-weight="bold">#2 Bob</text>
+
+  <!-- middle column: ENROLL link records -->
+  <rect x="795" y="230" width="330" height="90" rx="12" fill="#161b22" stroke="#8b949e" stroke-width="2.5"/>
+  <text x="960" y="285" fill="#e6edf3" font-size="30" text-anchor="middle" font-weight="bold">#5 ENROLL</text>
+
+  <rect x="795" y="480" width="330" height="90" rx="12" fill="#161b22" stroke="#8b949e" stroke-width="2.5"/>
+  <text x="960" y="535" fill="#e6edf3" font-size="30" text-anchor="middle" font-weight="bold">#6 ENROLL</text>
+
+  <rect x="795" y="730" width="330" height="90" rx="12" fill="#161b22" stroke="#8b949e" stroke-width="2.5"/>
+  <text x="960" y="785" fill="#e6edf3" font-size="30" text-anchor="middle" font-weight="bold">#7 ENROLL</text>
+
+  <!-- right column: COURSES -->
+  <rect x="1480" y="250" width="330" height="100" rx="12" fill="#1a1400" stroke="#d29922" stroke-width="3"/>
+  <text x="1645" y="292" fill="#8b949e" font-size="22" text-anchor="middle">COURSE</text>
+  <text x="1645" y="328" fill="#e6edf3" font-size="32" text-anchor="middle" font-weight="bold">#3 CS101</text>
+
+  <rect x="1480" y="640" width="330" height="100" rx="12" fill="#1a1400" stroke="#d29922" stroke-width="3"/>
+  <text x="1645" y="682" fill="#8b949e" font-size="22" text-anchor="middle">COURSE</text>
+  <text x="1645" y="718" fill="#e6edf3" font-size="30" text-anchor="middle" font-weight="bold">#4 MATH200</text>
+
+  <!-- STU_ENROLL set: student owns enrollments (green) -->
+  <!-- Alice -> #5, #6 -->
+  <path d="M440,290 L795,270" stroke="#3fb950" stroke-width="4" fill="none" marker-end="url(#g)"/>
+  <path d="M440,320 L795,510" stroke="#3fb950" stroke-width="4" fill="none" marker-end="url(#g)"/>
+  <!-- Bob -> #7 -->
+  <path d="M440,700 L795,770" stroke="#3fb950" stroke-width="4" fill="none" marker-end="url(#g)"/>
+
+  <!-- CRS_ENROLL set: course owns enrollments (amber) -->
+  <!-- CS101 -> #5, #7 -->
+  <path d="M1480,290 L1125,270" stroke="#d29922" stroke-width="4" fill="none" marker-end="url(#o)"/>
+  <path d="M1480,320 L1125,760" stroke="#d29922" stroke-width="4" fill="none" marker-end="url(#o)"/>
+  <!-- MATH200 -> #6 -->
+  <path d="M1480,690 L1125,540" stroke="#d29922" stroke-width="4" fill="none" marker-end="url(#o)"/>
+
+  <!-- legend -->
+  <line x1="120" y1="900" x2="200" y2="900" stroke="#3fb950" stroke-width="5"/>
+  <text x="215" y="909" fill="#c9d1d9" font-size="26">STU_ENROLL  (a student owns her enrollments)</text>
+  <line x1="120" y1="950" x2="200" y2="950" stroke="#d29922" stroke-width="5"/>
+  <text x="215" y="959" fill="#c9d1d9" font-size="26">CRS_ENROLL  (a course owns its enrollments)</text>
+
+  <text x="90" y="1030" fill="#8b949e" font-size="26">Alice's courses = walk her enrollments, follow each one's course owner  ->  CS101, MATH200. Same graph, both directions.</text>
+</svg>

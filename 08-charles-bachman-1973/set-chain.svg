@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1110" viewBox="0 0 1920 1110" font-family="'DejaVu Sans Mono','Courier New',monospace">
+  <defs>
+    <marker id="fwd" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="back" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1920" height="1080" fill="#0d1117"/>
+
+  <text x="90" y="100" fill="#c9d1d9" font-size="40" font-weight="bold">A "set": one owner, a chain of members</text>
+  <text x="90" y="150" fill="#8b949e" font-size="27">the relationship is stored as pointers you follow, not a scan you repeat</text>
+
+  <!-- OWNER: Engineering (DEPT) -->
+  <rect x="700" y="210" width="520" height="120" rx="12" fill="#0d2a17" stroke="#3fb950" stroke-width="3.5"/>
+  <text x="960" y="262" fill="#8b949e" font-size="24" text-anchor="middle">DEPT  (owner)</text>
+  <text x="960" y="302" fill="#e6edf3" font-size="34" text-anchor="middle" font-weight="bold">#1 Engineering</text>
+
+  <!-- MEMBER 1: Ada -->
+  <rect x="700" y="480" width="520" height="120" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="3"/>
+  <text x="960" y="532" fill="#8b949e" font-size="24" text-anchor="middle">EMP  (member)</text>
+  <text x="960" y="572" fill="#e6edf3" font-size="34" text-anchor="middle" font-weight="bold">#2 Ada</text>
+
+  <!-- MEMBER 2: Grace -->
+  <rect x="700" y="750" width="520" height="120" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="3"/>
+  <text x="960" y="802" fill="#8b949e" font-size="24" text-anchor="middle">EMP  (member)</text>
+  <text x="960" y="842" fill="#e6edf3" font-size="34" text-anchor="middle" font-weight="bold">#3 Grace</text>
+
+  <!-- forward: first member + next member -->
+  <path d="M900,330 L900,480" stroke="#3fb950" stroke-width="5" fill="none" marker-end="url(#fwd)"/>
+  <text x="880" y="415" fill="#3fb950" font-size="25" text-anchor="end">first member</text>
+
+  <path d="M900,600 L900,750" stroke="#3fb950" stroke-width="5" fill="none" marker-end="url(#fwd)"/>
+  <text x="880" y="685" fill="#3fb950" font-size="25" text-anchor="end">next member</text>
+
+  <!-- back: owner pointers (blue, dashed) -->
+  <path d="M1090,480 C1300,430 1300,360 1220,320" stroke="#58a6ff" stroke-width="3.5" fill="none" stroke-dasharray="9 7" marker-end="url(#back)"/>
+  <path d="M1090,750 C1420,660 1420,360 1224,300" stroke="#58a6ff" stroke-width="3.5" fill="none" stroke-dasharray="9 7" marker-end="url(#back)"/>
+  <text x="1470" y="540" fill="#58a6ff" font-size="25">owner</text>
+  <text x="1470" y="576" fill="#58a6ff" font-size="25">pointer</text>
+
+  <!-- terminator: chain ends -->
+  <text x="960" y="930" fill="#8b949e" font-size="24" text-anchor="middle">next member of #3 = None  (end of chain)</text>
+
+  <!-- caption -->
+  <text x="90" y="1010" fill="#c9d1d9" font-size="26">members WORKS_IN 1  =  FIND FIRST, then FIND NEXT WITHIN SET  ->  Ada, Grace</text>
+  <text x="90" y="1050" fill="#8b949e" font-size="26">green = walk down to the members.  blue = one hop back up to the owner.</text>
+</svg>
