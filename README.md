@@ -37,6 +37,7 @@ Each week:
 | 05 | James H. Wilkinson | 1970 | Backward error analysis — judge an algorithm by how small a change to the inputs would make its answer exact, separating a stable method from an ill-conditioned problem | [implementation.py](./05-james-wilkinson-1970/implementation.py) | [README](./05-james-wilkinson-1970/README.md) |
 | 06 | John McCarthy | 1971 | Invented Lisp and the metacircular `eval` — code and data share one shape, so an interpreter fits in one page; also coined "artificial intelligence" and pushed time-sharing | [implementation.py](./06-john-mccarthy-1971/implementation.py) | [README](./06-john-mccarthy-1971/README.md) |
 | 07 | Edsger W. Dijkstra | 1972 | Invented the shortest-path algorithm (finalize the smallest tentative label, one node at a time); also structured programming (no `goto`) and the semaphore for coordinating concurrent processes | [implementation.py](./07-edsger-dijkstra-1972/implementation.py) | [README](./07-edsger-dijkstra-1972/README.md) |
+| 08 | Charles W. Bachman | 1973 | Built the first database management system (Integrated Data Store) and the network data model — relationships stored as pointer chains you navigate ("the programmer as navigator"), the ancestor of today's graph databases | [implementation.py](./08-charles-bachman-1973/implementation.py) | [README](./08-charles-bachman-1973/README.md) |
 
 ---
 

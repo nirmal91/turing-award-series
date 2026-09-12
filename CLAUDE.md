@@ -60,6 +60,7 @@ Split image: left = before the contribution, right = after. Dark background, mon
 - 05: James H. Wilkinson (1970) — backward error analysis, numerical linear algebra
 - 06: John McCarthy (1971) — Lisp, metacircular eval, coined "artificial intelligence", time-sharing
 - 07: Edsger W. Dijkstra (1972) — shortest-path algorithm, structured programming (no goto), semaphores
+- 08: Charles W. Bachman (1973) — first DBMS (Integrated Data Store), the network data model, "the programmer as navigator", CODASYL, Bachman diagrams
 
 ## Next
-- 08: Charles W. Bachman (1973) — database management, Integrated Data Store, the CODASYL network data model
+- 09: Donald E. Knuth (1974) — The Art of Computer Programming, analysis of algorithms, TeX, literate programming
