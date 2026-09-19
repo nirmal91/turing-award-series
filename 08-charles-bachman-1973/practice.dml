@@ -1,0 +1,22 @@
+# Two customers, orders each -- automatic membership chains each ORDER into
+# its CUSTOMER's ring the moment it's stored.
+store CUSTOMER name=Alice city=Boston
+store ORDER order_no=1001 amount=50
+store ORDER order_no=1002 amount=75
+store CUSTOMER name=Bob city=Chicago
+store ORDER order_no=2001 amount=20
+
+find CUSTOMER name=Alice
+walk CUSTOMER-ORDERS
+
+# A part, then a line on Alice's first order. The LINE auto-connects into
+# BOTH rings at once, because an ORDER and a PART are both current right
+# now -- one record, two independent chains, no data copied for either.
+store PART part_no=P1 description=bolt
+find ORDER order_no=1001
+store LINE qty=12
+
+find ORDER order_no=1001
+walk ORDER-LINES
+find PART part_no=P1
+walk PART-LINES

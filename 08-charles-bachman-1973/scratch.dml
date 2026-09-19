@@ -1,0 +1,10 @@
+store CUSTOMER name=Carol city=Denver
+store ORDER order_no=1 amount=1
+store ORDER order_no=2 amount=2
+store CUSTOMER name=Dave city=Miami
+store ORDER order_no=3 amount=3
+store ORDER order_no=4 amount=4
+store ORDER order_no=5 amount=5
+find ORDER order_no=5
+find CUSTOMER name=Carol
+walk CUSTOMER-ORDERS
