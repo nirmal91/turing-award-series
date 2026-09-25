@@ -86,7 +86,20 @@ Sections in this exact order:
 ```
 Leave blank. Never fill this in. Nirmal writes it himself.
 
-### 3. The Code
+### 3. What He/She Actually Invented
+
+**Added Week 08 after Nirmal pushed back:** "I see the ACM Turing, then it's My Take, then it's directly the code. I want a little more understanding of what he invented, what the state of the art was before, and all of those things before you talk to me about the code." Include this section from Week 08 onward, between My Take and The Code, for every chapter — not just database/systems ones.
+
+4-5 plain-language paragraphs, no code, no headings inside it. Cover, in order:
+- What the state of the art was immediately before this contribution — concrete, not vague ("a stack of magnetic tape files, one per record type, read start to finish," not "computing was primitive")
+- What the winner actually built or proved, in plain terms — the shift, not the mechanism
+- Why that's the real invention, not just a speed-up (the shared/structural change, if there is one)
+- How it spread or got adopted (standardized, forked into products, sparked a subfield — whatever actually happened)
+- A one-line bridge into the code section
+
+This is the orientation pass — it gets Nirmal (and any reader) oriented before syntax. It is NOT a shorter CS Graduate Level section: no subsections, no citations, no code snippets. Save the deep technical mechanism, the concrete worked code/math example, and the lineage/impact analysis for CS Graduate Level later. If this section and CS Graduate Level start repeating each other paragraph-for-paragraph, this one is too deep — pull it back up to plain language.
+
+### 4. The Code
 - Link both files: `concept.py` and `implementation.py`
 - Describe concept.py in one line: what the pure idea is, nothing else
 - Pipeline or architecture diagram (text-based, e.g. `input → stage1 → stage2 → output`) for implementation.py
@@ -100,7 +113,7 @@ python implementation.py --verbose     # show internals
 ```
 - Example session showing input and output
 
-### 4. Full Worked Example
+### 5. Full Worked Example
 
 A complete step-by-step walkthrough of the core algorithm or concept with real numbers. No skipping steps. This section is for Nirmal to refer back to when writing his My Take and for readers who want to understand the mechanics.
 
@@ -112,17 +125,17 @@ Structure:
 
 This section did not exist in Week 02 and was added during Week 03 after Nirmal asked for it. Include it from Week 04 onward.
 
-### 5. ELI5
+### 6. ELI5
 Explain the contribution to a curious 5-year-old. 4-6 lines. No jargon.
 
 **Required:** Use the specific before/after of this invention as the analogy. Do not use a generic analogy. The ELI5 must show: what the world looked like before, what was hard or painful about it, and what changed. If the invention was about changing instructions without touching hardware, show that. If it was about error correction, show what a corrupted message looks like before and after.
 
-### 5. ELI10
+### 7. ELI10
 Explain to a curious 10-year-old. **3-4 paragraphs max.** Tell the story: what existed before, what the problem was, what changed, why it mattered. Include one specific detail that makes it feel real (a number, a name, a physical description).
 
 Do not pad. If 3 paragraphs cover it, stop at 3. The Maurice Wilkes ELI10 is the target length.
 
-### 6. CS Graduate Level
+### 8. CS Graduate Level
 Deep technical writeup. Subsections for each major contribution. Cover:
 - What the state of the art was before
 - What was technically new
@@ -130,7 +143,7 @@ Deep technical writeup. Subsections for each major contribution. Cover:
 - What it enabled or what descended from it
 - Any lasting impact on how we build things today
 
-### 7. Papers and Citations
+### 9. Papers and Citations
 Table format:
 | Paper | Venue | Year |
 |---|---|---|
@@ -254,7 +267,7 @@ Commit and push incrementally throughout the session (a stop-hook complains abou
 ## Checklist before finishing
 
 - [ ] Folder created with correct naming convention
-- [ ] README.md has all 7 sections in correct order
+- [ ] README.md has all 8 sections in correct order (What He/She Actually Invented sits between My Take and The Code)
 - [ ] My Take starts as a placeholder; his final approved text (never AI-drafted) is committed before the merge
 - [ ] concept.py created and runnable
 - [ ] implementation.py runs: default, a source file, --test, --verbose
