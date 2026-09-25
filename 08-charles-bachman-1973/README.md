@@ -10,6 +10,20 @@
 
 ---
 
+## What He Actually Invented
+
+Before Bachman, "database" mostly meant a stack of magnetic tape files, one per record type, read start to finish, in order, nothing else. If a program needed to relate two files — say, which orders belong to which customer — there were two options, both crude: sort both files by the same key and merge them in one matched pass, or rescan one file over and over, once for every record in the other. Every program had to know, baked into its own source code, exactly how the files were laid out. There was no "database" as a thing multiple programs shared — just a private file format, reinvented per program, that broke the moment you changed it.
+
+Bachman's Integrated Data Store, running at General Electric by 1963, replaced "recompute the relationship every time you need it" with "store the relationship as data." Instead of matching a customer to its orders by scanning, the customer record got an actual pointer to its first order. That order pointed to the next one. The last order pointed back to the customer, closing a ring. A program no longer searched for a customer's orders — it started at the customer and walked pointers, touching only the records that were actually related.
+
+That's also what makes IDS the first real database management *system*, and not just a faster file format: the record types and the relationships between them — Bachman called a relationship a "set type" — were described once, as a schema shared by every program that used the database, instead of each program carrying its own private, hand-coded understanding of the file layout. Change the schema in one place, and every program navigating it saw the change. Nobody had to hunt down and rewrite every program that happened to touch that data.
+
+It didn't stay a one-company system. Bachman helped lead the CODASYL Data Base Task Group, an industry committee, whose 1969 and 1971 reports turned IDS's approach into a standard — the **network data model** (called "network" because a record type could belong to more than one owner, unlike a strict parent-child hierarchy). Multiple vendors built database systems to that standard, and for most of the 1970s — years before SQL existed — this was simply how you built a serious database.
+
+So, before any code: no shared, storable relationships before this. Pointer-linked, schema-shared relationships after. Standardized industry-wide within a decade. The code below is what that actually looks like underneath.
+
+---
+
 ## The Code
 
 [`concept.py`](./concept.py) — the core idea in about 60 lines: a "set" is a ring of pointers. An owner record points to its first member, each member points to the next, and the last member points back to the owner. Finding everything that belongs to an owner means starting at the owner and following pointers, not scanning a whole file.

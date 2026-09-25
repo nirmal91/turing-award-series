@@ -14,12 +14,13 @@ Both stored at `/home/user/.claude/commands/`
 
 ## Chapter format (sections in this order)
 1. My Take — written by Nirmal, never by AI, left as placeholder until he writes it
-2. The Code — working implementation + how to run it
-3. Full Worked Example — step-by-step walkthrough with real numbers, no skipped steps (added Week 03)
-4. ELI5
-5. ELI10
-6. CS Graduate Level
-7. Papers and Citations
+2. What He/She Actually Invented — plain-language orientation: state of the art before, what changed, why it's a real invention not just a speed-up, how it spread (added Week 08, sits before the code on purpose)
+3. The Code — working implementation + how to run it
+4. Full Worked Example — step-by-step walkthrough with real numbers, no skipped steps (added Week 03)
+5. ELI5
+6. ELI10
+7. CS Graduate Level
+8. Papers and Citations
 
 ## Code requirements for each chapter
 - Self-contained Python (no external deps)
