@@ -1,0 +1,28 @@
+# Try it yourself: run with
+#   python3 implementation.py scratch.ids
+#
+# This builds one department with three employees, walks the ring, then
+# shows an employee that belongs to TWO sets at once -- the "network" part
+# of the network data model.
+
+DEFINE SET DEPT-EMP OWNER DEPARTMENT MEMBER EMPLOYEE
+DEFINE SET PROJ-EMP OWNER PROJECT MEMBER EMPLOYEE
+
+STORE DEPARTMENT name=Engineering
+STORE EMPLOYEE name=Alice
+CONNECT DEPT-EMP
+STORE EMPLOYEE name=Bob
+CONNECT DEPT-EMP
+STORE EMPLOYEE name=Carol
+CONNECT DEPT-EMP
+
+FIND FIRST DEPT-EMP OWNER DEPARTMENT#1
+FIND NEXT DEPT-EMP
+FIND NEXT DEPT-EMP
+
+# Alice also works on a project. Same employee record, second ring.
+STORE PROJECT name=Compiler
+CONNECT PROJ-EMP OWNER PROJECT#1 MEMBER EMPLOYEE#1
+FIND OWNER PROJ-EMP
+
+DUMP
