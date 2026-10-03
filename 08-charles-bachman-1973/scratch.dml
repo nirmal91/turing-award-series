@@ -1,0 +1,8 @@
+# Your scratch file. Run: python3 implementation.py scratch.dml
+# Lines starting with # are comments. Start by loading the demo data.
+demo
+FIND ANY CUSTOMER name=Birch
+FIND FIRST ORDER WITHIN CUST_ORDER
+FIND FIRST LINE WITHIN ORDER_LINE
+FIND OWNER WITHIN PROD_LINE
+GET
