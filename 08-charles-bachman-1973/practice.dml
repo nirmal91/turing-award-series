@@ -1,0 +1,30 @@
+# Practice script. Run with: python3 implementation.py practice.dml
+# Build a registrar, then navigate it.
+store course title=Logic
+store course title=Databases
+store course title=Compilers
+store student name=Ada
+find any course Logic
+store enrollment grade=A
+find any course Compilers
+store enrollment grade=B
+store student name=Grace
+find any course Logic
+store enrollment grade=A
+find any course Databases
+store enrollment grade=C
+dump
+check
+# Which students take Logic? Start at the course, walk its chain, hop to each student.
+find any course Logic
+find first enrollment within COURSE-ENROLLMENT
+find owner within STUDENT-ENROLLMENT
+find any course Logic
+find first enrollment within COURSE-ENROLLMENT
+find next enrollment within COURSE-ENROLLMENT
+find owner within STUDENT-ENROLLMENT
+find any course Logic
+find first enrollment within COURSE-ENROLLMENT
+find next enrollment within COURSE-ENROLLMENT
+find next enrollment within COURSE-ENROLLMENT
+touches
