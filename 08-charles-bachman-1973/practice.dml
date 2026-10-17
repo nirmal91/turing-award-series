@@ -1,0 +1,18 @@
+# Practice script. Run with: python3 implementation.py practice.dml
+load demo
+schema
+# 1. Direct access, then walk a ring.
+find CUSTOMER Acme
+get
+walk CUST-ORDERS
+# 2. Cross from a product, through an item, up to the order and customer.
+find PRODUCT WIDGET
+find first PRODUCT-ITEMS
+find owner ORDER-ITEMS
+find owner CUST-ORDERS
+currency
+# 3. Resume the product walk where you left it.
+find next PRODUCT-ITEMS
+# 4. Before and after.
+compare WIDGET
+compare BOLT
