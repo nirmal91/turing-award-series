@@ -61,5 +61,7 @@ Split image: left = before the contribution, right = after. Dark background, mon
 - 06: John McCarthy (1971) — Lisp, metacircular eval, coined "artificial intelligence", time-sharing
 - 07: Edsger W. Dijkstra (1972) — shortest-path algorithm, structured programming (no goto), semaphores
 
+- 08: Charles W. Bachman (1973) — Integrated Data Store, CODASYL network data model, navigation by pointers
+
 ## Next
-- 08: Charles W. Bachman (1973) — database management, Integrated Data Store, the CODASYL network data model
+- 09: Donald E. Knuth (1974) — analysis of algorithms, The Art of Computer Programming, TeX / literate programming

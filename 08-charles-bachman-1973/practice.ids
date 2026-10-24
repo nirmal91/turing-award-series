@@ -1,0 +1,32 @@
+# practice.ids — scratch file for talking to the mini IDS.
+# Run it with:   python3 implementation.py practice.ids
+# Anything after '#' is a comment. The schema must come first.
+
+record SUPPLIER sno name city calc sno
+record PART pno name calc pno
+record SUPPLY qty
+set ALL-SUPPLIERS owner SYSTEM member SUPPLIER order sorted sno
+set SUPPLIER-SUPPLY owner SUPPLIER member SUPPLY order last
+set PART-SUPPLY owner PART member SUPPLY order last
+
+store SUPPLIER sno=S1 name=Smith city=London
+store PART pno=P1 name=Nut
+store PART pno=P2 name=Bolt
+
+# a supply needs a current supplier and a current part, so find them first
+find calc SUPPLIER S1
+find calc PART P1
+store SUPPLY qty=300
+find calc SUPPLIER S1
+find calc PART P2
+store SUPPLY qty=200
+
+sets
+
+# your turn: which parts does S1 supply?
+find calc SUPPLIER S1
+loop
+  find next within SUPPLIER-SUPPLY
+  find owner within PART-SUPPLY
+  get
+end
