@@ -1,0 +1,8 @@
+# Walk the data yourself. Lines starting with # are comments.
+demo
+compare Research
+find DEPT:Research
+first DEPT-EMP DEPT:Research
+next DEPT-EMP
+next DEPT-EMP
+next DEPT-EMP
