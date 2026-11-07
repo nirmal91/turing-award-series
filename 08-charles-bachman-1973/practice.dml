@@ -1,0 +1,12 @@
+# Which projects does Ann work on, and for how many hours?
+# The sample company is already loaded. Run: python3 implementation.py practice.dml
+find any EMP name=Ann
+find first ASSIGN within EMP-ASSIGN
+get
+find owner within PROJ-ASSIGN
+find next ASSIGN within EMP-ASSIGN
+get
+find owner within PROJ-ASSIGN
+find next ASSIGN within EMP-ASSIGN
+show currency
+stats
