@@ -1,0 +1,4 @@
+store CUSTOMER name=Acme
+store ORDER total=250
+connect CUSTOMER-ORDER CUSTOMER:1 ORDER:1
+find first within CUSTOMER-ORDER owner CUSTOMER:1

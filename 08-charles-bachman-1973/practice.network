@@ -1,0 +1,52 @@
+# practice.network -- scratch file for building a small network database
+# and navigating it the way Bachman's IDS / CODASYL DML did.
+# Anything after a '#' is a comment (ignored).
+# Run it with:   python3 implementation.py practice.network
+#
+# Schema (fixed, like a real CODASYL DBA would define it):
+#   CUSTOMER-ORDER (owner CUSTOMER, member ORDER)
+#   ORDER-ITEM     (owner ORDER,    member ITEM)
+#
+# Rules:
+#   store TYPE field=value ...        -- create a record
+#   connect SET OWNER MEMBER          -- wire a member into an owner's set
+#   find first within SET owner KEY   -- first member, sets currency
+#   find next within SET              -- next member, using currency
+#   find owner SET MEMBER             -- walk a link backward
+#   scan TYPE field=value             -- the "before": brute-force scan
+#   show                              -- print the whole database
+
+# 1. Two customers.
+store CUSTOMER name=Acme
+store CUSTOMER name=Globex
+
+# 2. Three orders -- not yet connected to anyone.
+store ORDER total=250
+store ORDER total=80
+store ORDER total=500
+
+# 3. Wire two orders to Acme (CUSTOMER:1), one to Globex (CUSTOMER:2).
+connect CUSTOMER-ORDER CUSTOMER:1 ORDER:1
+connect CUSTOMER-ORDER CUSTOMER:1 ORDER:2
+connect CUSTOMER-ORDER CUSTOMER:2 ORDER:3
+
+# 4. Navigate: walk every order Acme owns, without ever touching order 3.
+find first within CUSTOMER-ORDER owner CUSTOMER:1
+find next within CUSTOMER-ORDER
+find next within CUSTOMER-ORDER
+
+# 5. Walk a link backward: which customer owns order 1?
+find owner CUSTOMER-ORDER ORDER:1
+
+# 6. A second level: items inside an order.
+store ITEM sku=WIDGET-A
+store ITEM sku=WIDGET-B
+connect ORDER-ITEM ORDER:1 ITEM:1
+connect ORDER-ITEM ORDER:1 ITEM:2
+find first within ORDER-ITEM owner ORDER:1
+find next within ORDER-ITEM
+
+# 7. Compare against the "before": a brute-force scan for the same answer.
+scan ORDER total=250
+
+show
